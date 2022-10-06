@@ -210,57 +210,73 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
     % ...
 \end{document}
 ```
+
 ## Рандомный матан, который я зачем-то постоянно вывожу заново
 ### Сумма бесконечной геометрической прогрессии
 $$
 \sum_{k=0}^{\infty} q^k = 1 + \sum_{k=1}^{\infty} q^k = 1 + q \cdot \sum_{k=0}^{\infty} q^k
 $$
+
 $$
 (1 - q) \cdot \sum_{k=0}^{\infty} q^k = 1
 $$
+
 $$
 \sum_{k=0}^{\infty} q^k = \frac{1}{1 - q}
 $$
+
 ### Сумма конечной геометрической прогрессии
 $$
 \sum_{k=0}^n q^k = \sum_{k=0}^{\infty} q^k - q^{n + 1} \cdot \sum_{k=0}^{\infty} q^k = \frac{1}{1 - q} - \frac{q^{n + 1}}{1 - q} = \frac{1 - q^{n + 1}}{1 - q}
 $$
+
 $$
 \sum_{k=1}^n q^k = q \cdot \frac{1 - q^n}{1 - q}
 $$
+
 ### Сумма бесконечной (k q^k)
 $$
 \sum_{k=1}^{\infty} k \cdot q^k = \sum_{k=1}^{\infty} q^k + \sum_{k=2}^{\infty} (k - 1) \cdot q^k = \frac{q}{1 - q} + q \cdot \sum_{k=1}^{\infty} k \cdot q^k
 $$
+
 $$
 (1 - q) \cdot \sum_{k=1}^{\infty} k \cdot q^k = \frac{q}{1 - q}
 $$
+
 $$
 \sum_{k=1}^{\infty} k \cdot q^k = \frac{q}{(1 - q)^2}
 $$
+
 ### Сумма конечной (k q^k)
 $$
 \sum_{k=1}^n k \cdot q^k = \sum_{k=1}^{\infty} k \cdot q^k - \sum_{k=n+1}^{\infty} k \cdot q^k =
 $$
+
 $$
 = \sum_{k=1}^{\infty} k \cdot q^k - \sum_{k=1}^{\infty} (k + n) \cdot q^k =
 $$
+
 $$
 = \sum_{k=1}^{\infty} k \cdot q^k - \sum_{k=1}^{\infty} (k + n) \cdot q^{k + n} =
 $$
+
 $$
 = \sum_{k=1}^{\infty} k \cdot q^k
 - q^n \cdot \sum_{k=1}^{\infty} k \cdot q^k
 - q^n \cdot \sum_{k=1}^{\infty} n \cdot q^k =
 $$
+
 $$
 = \frac{q}{(1 - q)^2}
 - q^n \cdot \frac{q}{(1 - q)^2}
 - q^n \cdot \frac{nq}{1 - q} =
 $$
+
 $$
 = q \cdot \frac{1 - q^n - n \cdot q^n \cdot (1 - q)}{(1 - q)^2} =
 $$
+
 $$
 = q \cdot \frac{1 - (1 + n) \cdot q^n + n \cdot q^{n + 1}}{(1 - q)^2}
 $$
+
