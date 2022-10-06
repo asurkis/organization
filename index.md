@@ -52,6 +52,7 @@
 ## Алгоритмы
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-чат](https://t.me/+SoCfgbO4P600ZTMy)
+- [Zoom](https://zoom.us/j/91496078686?pwd=TzZraEtwNURLbFV5WXFnYjJscUFFZz09) (от 06.10.2022)
 
 ### Практика, Мишунин
 - Почта: mailto:alexander.mishunin@gmail.com
@@ -79,6 +80,7 @@
 ## Unix
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-чат](https://t.me/+QH275TZPXBs2ODUy)
+- [Zoom](https://zoom.us/j/96967343753?pwd=d0lObTNuL1RKUUtyazB5UTVqQVQ1UT09) (от 05.10.2022)
 
 ## Функциональное программирование
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%A4%D0%9F_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
@@ -95,6 +97,7 @@
 - Почта: andrey.stoyan.fp2022@gmail.com
 - [Telegram-чат Стояна](https://t.me/+zoNDV9sFjZA5MWIy)
 - [Актуальное ДЗ](https://classroom.github.com/a/YRqWS8iA)
+- [Zoom](https://zoom.us/j/95670888367?pwd=VjIwN0gzZ3NuOEhiTTBZVUQvVHp3QT09) (от 28.09.2022)
 
 #### Презентации
 1. [Лямбда-исчисление](https://wiki.compscicenter.ru/images/2/26/FP2022-01-Stoyan-Khalansky.pdf)
@@ -114,6 +117,7 @@
     - [GitHub Classroom](https://classroom.github.com/a/GOtkuOdt)
     - [Условие задачи](https://drive.google.com/file/d/1EE5PnnAJB5lTEDOO6dZlyXABRFoZejzi/view?usp=sharing)
     - [Дедлайны](https://docs.google.com/document/d/1IzCsTXhdef6gaDBTDsRHFv7m6gbkijI5Nt_zQn8va1g/edit)
+- [Zoom](https://us02web.zoom.us/j/89862080943?pwd=OE81V1BFM1Vmd2ErVGxiTHVycHBvdz09) (контрольная 04.10.2022)
 
 ### Просто полезные ссылки
 - [CppReference](https://en.cppreference.com/)
@@ -121,9 +125,17 @@
 ## Базы данных
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/DB_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-канал](https://t.me/+tQx2cPUFhDs0ZGU6)
+- [Zoom](https://zoom.us/j/96065781899?pwd=SlNaeHlmbDg1L2V2MThaMEc3M0haQT09) (от 26.09.2022)
 
+## Английский (Sarah Daniali)
+- [Zoom](https://itmo.zoom.us/j/3283483862)
+- [Таблица посещаемости](https://docs.google.com/spreadsheets/d/1x_nMVjgfhSqnlo77pWMCRX04gYzKBo6U_u7V_PgtshU/edit?usp=sharing)
+- [Google Drive курса](https://drive.google.com/drive/folders/1EIi05L6ZHwrzGSdJNrCPTMcLMr3lJ5gm)
+    - [Папка преподавателя](https://drive.google.com/drive/folders/1rT0Uto4t_PpkRvlUbfuj2wUMjdfrDuXh)
+    - [Моя папка](https://drive.google.com/drive/folders/1ThOvUZIKYl1jwTlTXCHU_XWHpTkUnCEH)
 ## Помощь
 - [Telegram-чат](https://t.me/+BemOZnQwpCI1OTUy)
+- [Zoom](https://zoom.us/j/89619013664?pwd=aFU5YzdTMkpqWlQzSkNqUEd5V29ZQT09) (от 28.09.2022)
 
 # Мои наработки
 ## Makefile
