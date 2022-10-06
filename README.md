@@ -261,15 +261,11 @@ $$
 $$
 
 $$
-= \sum_{k=1}^{\infty} k \cdot q^k
-- q^n \cdot \sum_{k=1}^{\infty} k \cdot q^k
-- q^n \cdot \sum_{k=1}^{\infty} n \cdot q^k =
+= \sum_{k=1}^{\infty} k \cdot q^k - q^n \cdot \sum_{k=1}^{\infty} k \cdot q^k - q^n \cdot \sum_{k=1}^{\infty} n \cdot q^k =
 $$
 
 $$
-= \frac{q}{(1 - q)^2}
-- q^n \cdot \frac{q}{(1 - q)^2}
-- q^n \cdot \frac{nq}{1 - q} =
+= \frac{q}{(1 - q)^2} - q^n \cdot \frac{q}{(1 - q)^2} - q^n \cdot \frac{nq}{1 - q} =
 $$
 
 $$
