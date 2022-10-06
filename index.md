@@ -73,6 +73,8 @@
 
 ## Машинное обучение
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
+- [Google Drive курса](https://drive.google.com/drive/folders/1Onm5w8_GV5GhM-RoJNxZ71fxar6c1uxQ)
+- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1sxlH0mmq2TPDSBGayyYaPZLnyqPU9fc07W_efvKO_yM/edit?usp=drive_web&ouid=110272677983187379651) (пока пустая)
 
 ## Unix
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
@@ -114,7 +116,7 @@
     - [Дедлайны](https://docs.google.com/document/d/1IzCsTXhdef6gaDBTDsRHFv7m6gbkijI5Nt_zQn8va1g/edit)
 
 ### Просто полезные ссылки
-- https://en.cppreference.com/
+- [CppReference](https://en.cppreference.com/)
 
 ## Базы данных
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/DB_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
@@ -122,3 +124,77 @@
 
 ## Помощь
 - [Telegram-чат](https://t.me/+BemOZnQwpCI1OTUy)
+
+# Мои наработки
+## Makefile
+Цель для Makefile, собирающая все файлы \*.cpp в данной директории в .exe с учётом CXX и CXXFLAGS:
+```make
+build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
+	$(CXX) $(CXXFLAGS) $+ -o $@
+```
+## LaTeX
+Мой шаблон документа main.tex:
+```latex
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{fullpage}
+%\usepackage{indentfirst}
+%\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+%\usepackage{proof}
+%\usepackage{xcolor}
+%\usepackage{graphicx}
+%\usepackage{textcomp}
+\usepackage{tikz}
+%\usetikzlibrary{patterns}
+%\usepackage{listings}
+\usepackage{algorithmicx}
+\usepackage{algpseudocodex}
+%\usepackage{algorithm2e}
+
+\begin{document}
+    \hfill
+    \begin{tabular}{ll}
+        Студент: & Антон Суркис \\
+        Группа:  & M4141        \\
+        Дата:    & \today       \\
+    \end{tabular}
+    \hrule
+
+    \newcommand{\N}{\mathbb{N}}
+    \newcommand{\R}{\mathbb{R}_{>0}}
+    \renewcommand{\O}{\mathcal{O}}
+    \renewcommand{\o}{o}
+    \newcommand{\Const}{\mathit{Const}}
+
+    \newcommand{\fn}[1]{\mathbf{#1}}
+    \newcommand{\cI}{\fn{I}}
+    \newcommand{\comega}{\fn{\omega}}
+    \newcommand{\cK}{\fn{K}}
+    \newcommand{\cKs}{\fn{K_*}}
+    \newcommand{\cC}{\fn{C}}
+    \newcommand{\cB}{\fn{B}}
+    \newcommand{\cS}{\fn{S}}
+    \newcommand{\beq}{=_{\beta}}
+    \newcommand{\bred}{\longrightarrow_{\beta}}
+    \newcommand{\cT}{\fn{true}}
+    \newcommand{\cF}{\fn{false}}
+    \newcommand{\cY}{\fn{Y}}
+
+    \newcommand{\paren}[1]{\left ( #1 \right )}
+    \newcommand{\brackets}[1]{\left [ #1 \right ]}
+    \newcommand{\braces}[1]{\left \{ #1 \right \}}
+    \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+    \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+    \newcommand{\abs}[1]{\left | #1 \right |}
+
+    \input{task01} \clearpage
+    \input{task02} \clearpage
+    % ...
+\end{document}
+```
