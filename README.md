@@ -45,6 +45,9 @@
 Пар нет
 
 # Ссылки
+## Разные вкусности
+- [Викиконспекты](https://neerc.ifmo.ru/wiki/index.php)
+
 ## Группа
 - [Discord](https://discord.gg/YnmwRdSp7d)
 - [Telegram](https://t.me/+a0A89gygHzcxYWMy)
