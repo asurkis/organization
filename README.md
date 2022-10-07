@@ -227,7 +227,11 @@ $$
 
 ### Сумма конечной геометрической прогрессии
 $$
-\sum_{k=0}^n q^k = \sum_{k=0}^{\infty} q^k - q^{n + 1} \cdot \sum_{k=0}^{\infty} q^k = \frac{1}{1 - q} - \frac{q^{n + 1}}{1 - q} = \frac{1 - q^{n + 1}}{1 - q}
+\sum_{k=0}^n q^k = \sum_{k=0}^{\infty} q^k - q^{n + 1} \cdot \sum_{k=0}^{\infty} q^k =
+$$
+
+$$
+= \frac{1}{1 - q} - \frac{q^{n + 1}}{1 - q} = \frac{1 - q^{n + 1}}{1 - q}
 $$
 
 $$
@@ -236,7 +240,11 @@ $$
 
 ### Сумма бесконечной (k q^k)
 $$
-\sum_{k=1}^{\infty} k \cdot q^k = \sum_{k=1}^{\infty} q^k + \sum_{k=2}^{\infty} (k - 1) \cdot q^k = \frac{q}{1 - q} + q \cdot \sum_{k=1}^{\infty} k \cdot q^k
+\sum_{k=1}^{\infty} k \cdot q^k = \sum_{k=1}^{\infty} q^k + \sum_{k=2}^{\infty} (k - 1) \cdot q^k =
+$$
+
+$$
+= \frac{q}{1 - q} + q \cdot \sum_{k=1}^{\infty} k \cdot q^k
 $$
 
 $$
