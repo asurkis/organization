@@ -210,6 +210,10 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
     % ...
 \end{document}
 ```
+### Документация по часто используемым пакетам
+- [tikz](http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf) ([CTAN](https://www.ctan.org/pkg/pgf))
+- [algorithmicx](http://mirrors.ctan.org/macros/latex/contrib/algorithmicx/algorithmicx.pdf) ([CTAN](https://www.ctan.org/pkg/algorithmicx))
+- [algpseudocodex](http://mirrors.ctan.org/macros/latex/contrib/algpseudocodex/algpseudocodex.pdf) ([CTAN](https://www.ctan.org/pkg/algpseudocodex))
 
 ## Рандомный матан, который я зачем-то постоянно вывожу заново
 ### Сумма бесконечной геометрической прогрессии
