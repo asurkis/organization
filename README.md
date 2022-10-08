@@ -79,6 +79,7 @@
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
 - [Google Drive курса](https://drive.google.com/drive/folders/1Onm5w8_GV5GhM-RoJNxZ71fxar6c1uxQ)
 - [Таблица с оценками](https://docs.google.com/spreadsheets/d/1sxlH0mmq2TPDSBGayyYaPZLnyqPU9fc07W_efvKO_yM/edit?usp=drive_web&ouid=110272677983187379651) (пока пустая)
+- [Актуальное ДЗ](https://drive.google.com/drive/folders/1epigAzq8019g5Xk7VvYBaGX22G6vOGqL)
 
 ## Unix
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
