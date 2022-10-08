@@ -76,13 +76,12 @@ $$
     = q \cdot \frac{1 - (1 + n) \cdot q^n + n \cdot q^{n + 1}}{(1 - q)^2}
 $$
 
-
-
 # Линейная регрессия
 Теги: #math #ml #linearRegression
 $$
     \hat{y}_k = x_k^T \vec{w'} + b
 $$
+
 $$
     \hat{X} =
     \begin{bmatrix}
@@ -96,11 +95,13 @@ $$
 $$
     \hat{Y} = \hat{X} \cdot \vec{w}
 $$
+
 ## MSE
 Теги: #math #ml #metric #mse
 $$
     \text{MSE} = \frac{1}{n} \sum_{k=1}^n (y_k - \hat{y}_k)^2
 $$
+
 ## R^2
 Теги: #math #ml #metric #r2
 $$
@@ -118,32 +119,41 @@ $$
 $$
     R^2 = 1 - \frac{SS_\text{res}}{SS_\text{tot}}
 $$
+
 ## Решение MSE
 Теги: #math #ml #linearRegression #mse
 $$
     \text{MSE} = \min
 $$
+
 $$
     \frac{1}{n} \sum_{k=1}^n (\hat{y}_k - y_k)^2 = \min
 $$
+
 $$
     \sum_k (\hat{y}_k - y_k)^2 = \min
 $$
+
 $$
     E = \hat{Y} - Y = \hat{X} \vec{w} - Y
 $$
+
 $$
     E^T E = \min
 $$
+
 $$
     \nabla \left( E^T E \right) = \vec{0}
 $$
+
 $$
     \forall j : \frac{d}{dw_j} \left( E^T E \right) = 0
 $$
+
 $$
     \forall j : \frac{d}{dw_j} \left( \left( \hat{X} \vec{w} - Y \right)^2 \right) = 0
 $$
+
 $$
     \forall j : \frac{d}{dw_j} \left( \left( \sum_k \hat{X}_k \cdot \vec{w} - y_k \right)^2 \right) = 0
 $$
@@ -151,18 +161,24 @@ $$
 $$
     \forall j : \sum_k \frac{d}{dw_j} \left( \left( \hat{X}_k \cdot \vec{w} - y_k \right)^2 \right) = 0
 $$
+
 $$
     \forall j : \sum_k 2 (\hat{X}_k \cdot \vec{w} - y_k) \hat{X}_{kj} = 0
 $$
+
 $$
     \forall j : \sum_k (\hat{X} \vec{w} - Y)_k \hat{X}_{kj} = 0
 $$
+
 $$
     \hat{X}^T (\hat{X} \vec{w} - Y) = 0
 $$
+
 $$
     \hat{X}^T \hat{X} \vec{w} = \hat{X}^T Y
 $$
+
 $$
     \vec{w} = \left( \hat{X}^T \hat{X} \right)^{-1} \hat{X}^T Y
 $$
+
