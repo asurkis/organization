@@ -2,6 +2,7 @@
 # Суммы прогрессий
 ## Сумма бесконечной геометрической прогрессии
 Теги: #math #infiniteSum
+
 $$
     \sum_{k=0}^{\infty} q^k = 1 + \sum_{k=1}^{\infty} q^k = 1 + q \cdot \sum_{k=0}^{\infty} q^k
 $$
@@ -16,6 +17,7 @@ $$
 
 ## Сумма конечной геометрической прогрессии
 Теги: #math #finiteSum
+
 $$
     \sum_{k=0}^n q^k = \sum_{k=0}^{\infty} q^k - q^{n + 1} \cdot \sum_{k=0}^{\infty} q^k =
 $$
@@ -30,6 +32,7 @@ $$
 
 ## Сумма бесконечной (k q^k)
 Теги: #math #infiniteSum
+
 $$
     \sum_{k=1}^{\infty} k \cdot q^k = \sum_{k=1}^{\infty} q^k + \sum_{k=2}^{\infty} (k - 1) \cdot q^k =
 $$
@@ -48,6 +51,7 @@ $$
 
 ## Сумма конечной (k q^k)
 Теги: #math #finiteSum
+
 $$
     \sum_{k=1}^n k \cdot q^k = \sum_{k=1}^{\infty} k \cdot q^k - \sum_{k=n+1}^{\infty} k \cdot q^k =
 $$
@@ -78,6 +82,7 @@ $$
 
 # Линейная регрессия
 Теги: #math #ml #linearRegression
+
 $$
     \hat{y}_k = x_k^T \vec{w'} + b
 $$
@@ -97,6 +102,7 @@ $$
 $$
 
 ## MSE
+
 Теги: #math #ml #metric #mse
 $$
     \text{MSE} = \frac{1}{n} \sum_{k=1}^n (y_k - \hat{y}_k)^2
@@ -104,6 +110,7 @@ $$
 
 ## R^2
 Теги: #math #ml #metric #r2
+
 $$
     \overline{y} = \frac{1}{n} \sum_{k=1}^n y_k
 $$
@@ -122,6 +129,7 @@ $$
 
 ## Решение MSE
 Теги: #math #ml #linearRegression #mse
+
 $$
     \text{MSE} = \min
 $$
