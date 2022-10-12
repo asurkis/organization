@@ -28,7 +28,6 @@
 
 - [Telegram-чат](https://t.me/+jSszZymbKXcyMWQy)
 - [Таблица для решённых задач](https://docs.google.com/spreadsheets/d/1xAXKghsBmfy4ohmDeNuoAW2wEdrWC_UH0ntqlej8Fb8/edit?usp=drivesdk)
-- [Актуальное ДЗ](https://wiki.compscicenter.ru/images/0/0b/2022_ifmo_hw_04.pdf)
 
 ## Машинное обучение
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
@@ -72,6 +71,10 @@
 ## C++ Hard
 - [Discord](https://discord.gg/TamhjH99)
 - [Telegram-канал](https://t.me/+3C_FV6gTykY4MTJi)
+- [GitHub курса](https://github.com/cpp-practice/cpp-public-2223)
+- [Ведомость](https://docs.google.com/spreadsheets/d/1vfAQxIluCHa0oERst2FGqviX_dBbGlQX8dDOtg1jMW8/edit)
+- [Процесс ревью](https://github.com/cpp-practice/cpp-public-2223/blob/main/semester-1/seminar-tasks-review.md)
+- [Требования к окружению](https://github.com/cpp-practice/cpp-public-2223/blob/main/requirements.md)
 - Актуальное ДЗ:
     - [GitHub Classroom](https://classroom.github.com/a/GOtkuOdt)
     - [Условие задачи](https://drive.google.com/file/d/1EE5PnnAJB5lTEDOO6dZlyXABRFoZejzi/view?usp=sharing)
