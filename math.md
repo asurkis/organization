@@ -104,6 +104,7 @@ $$
 ## MSE
 
 Теги: #math #ml #metric #mse
+
 $$
 \text{MSE} = \frac{1}{n} \sum_{k=1}^n (y_k - \hat{y}_k)^2
 $$
