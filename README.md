@@ -33,7 +33,7 @@
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
 - [Google Drive курса](https://drive.google.com/drive/folders/1Onm5w8_GV5GhM-RoJNxZ71fxar6c1uxQ)
 - [Таблица с оценками](https://docs.google.com/spreadsheets/d/1sxlH0mmq2TPDSBGayyYaPZLnyqPU9fc07W_efvKO_yM/edit?usp=drive_web&ouid=110272677983187379651) (пока пустая)
-- [Актуальное ДЗ](https://drive.google.com/drive/folders/1epigAzq8019g5Xk7VvYBaGX22G6vOGqL)
+- [Актуальное ДЗ](https://drive.google.com/drive/folders/1c3f12rXrgUDRYXLob4bgf0vyKPtqzQyD)
 
 ## Unix
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
@@ -54,7 +54,7 @@
 ### Практика, Стоян
 - Почта: andrey.stoyan.fp2022@gmail.com
 - [Telegram-чат Стояна](https://t.me/+zoNDV9sFjZA5MWIy)
-- [Актуальное ДЗ](https://classroom.github.com/a/YRqWS8iA)
+- [Актуальное ДЗ](https://classroom.github.com/a/8JGJvUwI)
 - [Zoom](https://zoom.us/j/95670888367?pwd=VjIwN0gzZ3NuOEhiTTBZVUQvVHp3QT09) (от 28.09.2022)
 
 #### Презентации
