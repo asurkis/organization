@@ -30,7 +30,7 @@ $$
 Тогда по индукции
 
 $$
-\forall n \in \N : \sum_{k=1}^n k = \frac{n (n + 1)}{2}
+\forall n \in \mathbb{N} : \sum_{k=1}^n k = \frac{n (n + 1)}{2}
 $$
 
 ## Сумма квадратов от 1 до n
@@ -68,7 +68,7 @@ $$
 Тогда по индукции
 
 $$
-\forall n \in \N : \sum_{k=1}^n k^2 = \frac{n(n + 1)(2n + 1)}{6}
+\forall n \in \mathbb{N} : \sum_{k=1}^n k^2 = \frac{n(n + 1)(2n + 1)}{6}
 $$
 
 ## Сумма кубов от 1 до n
@@ -105,7 +105,7 @@ $$
 Тогда по индукции
 
 $$
-\forall n \in \N : \sum_{k=1}^n k^3 = \frac{n^2 (n + 1)^2}{4}
+\forall n \in \mathbb{N} : \sum_{k=1}^n k^3 = \frac{n^2 (n + 1)^2}{4}
 $$
 
 ## Сумма бесконечной геометрической прогрессии
