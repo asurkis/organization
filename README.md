@@ -33,7 +33,6 @@
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
 - [Google Drive курса](https://drive.google.com/drive/folders/1Onm5w8_GV5GhM-RoJNxZ71fxar6c1uxQ)
 - [Таблица с оценками](https://docs.google.com/spreadsheets/d/1sxlH0mmq2TPDSBGayyYaPZLnyqPU9fc07W_efvKO_yM/edit?usp=drive_web&ouid=110272677983187379651) (пока пустая)
-- [Актуальное ДЗ](https://drive.google.com/drive/folders/1c3f12rXrgUDRYXLob4bgf0vyKPtqzQyD)
 
 ## Unix
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
@@ -54,7 +53,6 @@
 ### Практика, Стоян
 - Почта: andrey.stoyan.fp2022@gmail.com
 - [Telegram-чат Стояна](https://t.me/+zoNDV9sFjZA5MWIy)
-- [Актуальное ДЗ](https://classroom.github.com/a/8JGJvUwI)
 - [Zoom](https://zoom.us/j/95670888367?pwd=VjIwN0gzZ3NuOEhiTTBZVUQvVHp3QT09) (от 28.09.2022)
 
 #### Презентации
@@ -75,10 +73,6 @@
 - [Ведомость](https://docs.google.com/spreadsheets/d/1vfAQxIluCHa0oERst2FGqviX_dBbGlQX8dDOtg1jMW8/edit)
 - [Процесс ревью](https://github.com/cpp-practice/cpp-public-2223/blob/main/semester-1/seminar-tasks-review.md)
 - [Требования к окружению](https://github.com/cpp-practice/cpp-public-2223/blob/main/requirements.md)
-- Актуальное ДЗ:
-    - [GitHub Classroom](https://classroom.github.com/a/GOtkuOdt)
-    - [Условие задачи](https://drive.google.com/file/d/1EE5PnnAJB5lTEDOO6dZlyXABRFoZejzi/view?usp=sharing)
-    - [Дедлайны](https://docs.google.com/document/d/1IzCsTXhdef6gaDBTDsRHFv7m6gbkijI5Nt_zQn8va1g/edit)
 - [Zoom](https://us02web.zoom.us/j/89862080943?pwd=OE81V1BFM1Vmd2ErVGxiTHVycHBvdz09) (контрольная 04.10.2022)
 
 ### Просто полезные ссылки
@@ -130,6 +124,7 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
 \usepackage{algorithmicx}
 \usepackage{algpseudocodex}
 %\usepackage{algorithm2e}
+\usepackage{minted}
 
 \begin{document}
     \hfill
@@ -176,6 +171,7 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
 - [tikz](http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf) ([CTAN](https://www.ctan.org/pkg/pgf))
 - [algorithmicx](http://mirrors.ctan.org/macros/latex/contrib/algorithmicx/algorithmicx.pdf) ([CTAN](https://www.ctan.org/pkg/algorithmicx))
 - [algpseudocodex](http://mirrors.ctan.org/macros/latex/contrib/algpseudocodex/algpseudocodex.pdf) ([CTAN](https://www.ctan.org/pkg/algpseudocodex))
+- [minted](https://mirror.truenetwork.ru/CTAN/macros/latex/contrib/minted/minted.pdf) ([CTAN](https://ctan.org/pkg/minted))
 
 ## [Математика](./math.md)
 #math
