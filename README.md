@@ -14,20 +14,19 @@
 
 ### Практика, Мишунин
 - Почта: mailto:alexander.mishunin@gmail.com
-- [Таблица с результатами](https://docs.google.com/spreadsheets/d/11wMfO1UxDqdLJHgcCRacJtivrE7vZI20yKYbMG2blDc/edit#gid=0)
+- [Таблица с оценками](https://docs.google.com/spreadsheets/d/11wMfO1UxDqdLJHgcCRacJtivrE7vZI20yKYbMG2blDc/edit#gid=0)
 
 ## Дискретная математика
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%B0_%D0%B8_%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Общий Telegram-чат](https://t.me/+LeW8hfZQZyk3MmJi)
-
 - [Конспекты лекций 2021](https://wiki.compscicenter.ru/images/5/50/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B_%D0%94%D0%9C_16_09_2021.pdf)
 - [Вопросы к экзамену 2021](https://wiki.compscicenter.ru/images/9/93/%D0%9E%D1%81%D0%B5%D0%BD%D1%8C_2021-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%BA-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%83_%D0%98%D0%A2%D0%9C%D0%9E.pdf)
 
 ### Практика, Самойлова
 - Почта: mailto:geraolga91@gmail.com
-
 - [Telegram-чат](https://t.me/+jSszZymbKXcyMWQy)
 - [Таблица для решённых задач](https://docs.google.com/spreadsheets/d/1xAXKghsBmfy4ohmDeNuoAW2wEdrWC_UH0ntqlej8Fb8/edit?usp=drivesdk)
+- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1YWCFGlpyGLqgigMqKawI8oVh_i-tkh5z8X2kamyuyio/edit#gid=1129858061)
 
 ## Машинное обучение
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
@@ -49,6 +48,9 @@
 3. [Просто типизированное лямбда-исчисление](https://wiki.compscicenter.ru/images/8/82/Fpc03IFMO2022.pdf)
 4. [Введение в Haskell](https://wiki.compscicenter.ru/images/4/4a/Fpc04IFMO2022.pdf)
 5. [Типы данных](https://wiki.compscicenter.ru/images/a/a1/Fpc05IFMO2022.pdf)
+6. [Классы типов](https://wiki.compscicenter.ru/images/9/9a/Fpc06IFMO2022.pdf)
+7. [Свёртки](https://wiki.compscicenter.ru/images/5/5a/Fpc07IFMO2022.pdf)
+8. [Аппликативные функторы](https://wiki.compscicenter.ru/images/5/5a/Fpc07IFMO2022.pdf)
 
 ### Практика, Стоян
 - Почта: andrey.stoyan.fp2022@gmail.com
@@ -61,7 +63,9 @@
 3. [Типы](https://wiki.compscicenter.ru/images/9/91/FP2022-03-Stoyan-Khalansky.pdf)
 4. [Введение в Haskell](https://wiki.compscicenter.ru/images/0/04/FP2022-04-Stoyan-Khalansky.pdf)
 5. [Структуры данных](https://wiki.compscicenter.ru/images/a/a5/FP2022-05-Stoyan-Khalansky.pdf)
-
+6. [Классы типов](https://wiki.compscicenter.ru/images/0/0a/FP2022-06-Stoyan-Khalansky.pdf)
+7. [Свёртки](https://wiki.compscicenter.ru/images/2/24/FP2022-07-Stoyan-Khalansky.pdf)
+8. [Аппликативные функторы](https://wiki.compscicenter.ru/images/8/87/FP2022-08-Stoyan-Khalansky.pdf)
 
 ### Просто полезные ссылки
 - [Hoogle](https://hoogle.haskell.org/)
@@ -82,6 +86,7 @@
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/DB_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-канал](https://t.me/+tQx2cPUFhDs0ZGU6)
 - [Zoom](https://zoom.us/j/96065781899?pwd=SlNaeHlmbDg1L2V2MThaMEc3M0haQT09) (от 26.09.2022)
+- [Контестный сервер](http://52.215.151.195/)
 
 ## Английский (Sarah Daniali)
 - [Zoom](https://itmo.zoom.us/j/3283483862)
@@ -89,6 +94,7 @@
 - [Google Drive курса](https://drive.google.com/drive/folders/1EIi05L6ZHwrzGSdJNrCPTMcLMr3lJ5gm)
     - [Папка преподавателя](https://drive.google.com/drive/folders/1rT0Uto4t_PpkRvlUbfuj2wUMjdfrDuXh)
     - [Моя папка](https://drive.google.com/drive/folders/1ThOvUZIKYl1jwTlTXCHU_XWHpTkUnCEH)
+
 ## Помощь
 - [Telegram-чат](https://t.me/+BemOZnQwpCI1OTUy)
 - [Zoom](https://zoom.us/j/89619013664?pwd=aFU5YzdTMkpqWlQzSkNqUEd5V29ZQT09) (от 28.09.2022)
