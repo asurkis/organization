@@ -74,10 +74,10 @@
 - [Discord](https://discord.gg/TamhjH99)
 - [Telegram-канал](https://t.me/+3C_FV6gTykY4MTJi)
 - [GitHub курса](https://github.com/cpp-practice/cpp-public-2223)
-- [Ведомость](https://docs.google.com/spreadsheets/d/1vfAQxIluCHa0oERst2FGqviX_dBbGlQX8dDOtg1jMW8/edit)
 - [Процесс ревью](https://github.com/cpp-practice/cpp-public-2223/blob/main/semester-1/seminar-tasks-review.md)
 - [Требования к окружению](https://github.com/cpp-practice/cpp-public-2223/blob/main/requirements.md)
 - [Zoom](https://us02web.zoom.us/j/89862080943?pwd=OE81V1BFM1Vmd2ErVGxiTHVycHBvdz09) (контрольная 04.10.2022)
+- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1vfAQxIluCHa0oERst2FGqviX_dBbGlQX8dDOtg1jMW8/edit)
 
 ### Просто полезные ссылки
 - [CppReference](https://en.cppreference.com/)
