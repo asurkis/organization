@@ -300,3 +300,44 @@ $$
 $$
 
 Решаем методом Гаусса, те веса, для которых получаем неопределённость, приравниваем к 0.
+
+# Градиент кроссэнтропии
+Теги: #math #ml #gradient #NeuralNetworks #CrossEntropy #SoftMax
+
+Рассматриваем один объект с производными фичами $x_k$. $p_c$ — вероятность того, что этот объект попадает в класс $c$, $y$ — реальный класс объекта, $L$ — функция потерь всего, $L_c$ — функция потерь по классу $c$ (то есть $L$, если $y = c$, и $0$ в противном случае).
+
+$$
+p_c = \frac{\exp(x_c)}{\sum_k \exp(x_k)}
+$$
+
+$$
+L = \sum_c L_c = -\sum_c (y = c) \ln p_c
+$$
+
+$$
+\frac{dL}{dp_c} = \frac{dL_c}{dp_c} = \frac{-(y = c)}{p_c}
+$$
+
+$$
+\frac{dp_c}{dx_j} = \frac{d}{dx_j} \frac{\exp(x_c)}{\sum_k \exp(x_k)} =
+$$
+
+$$
+= \frac{\sum_k \exp(x_k) \cdot \frac{d}{dx_j} \exp(x_c) - \exp(x_c) \cdot \frac{d}{dx_j} \sum_k \exp(x_k)}{\left(\sum_k \exp(x_k) \right)^2} =
+$$
+
+$$
+= \frac{(j = c) \exp(x_c)}{\sum_k \exp(x_k)} - \frac{\exp(x_c)}{\sum_k \exp(x_k)} \cdot \frac{\exp(x_j)}{\sum_k \exp(x_k)} =
+$$
+
+$$
+= (j = c) p_c - p_c p_j = p_c ((j = c) - p_j)
+$$
+
+$$
+\frac{dL}{dx_j} = \frac{dL_y}{dx_j} = \frac{dL_y}{dp_y} \cdot \frac{dp_y}{dx_j} =
+$$
+
+$$
+= \frac{-1}{p_y} \cdot p_y \cdot ((j = y) - p_j) = p_j - (j = y)
+$$
