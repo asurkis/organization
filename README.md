@@ -111,8 +111,9 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
 ```latex
 \documentclass[12pt]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T2A]{fontenc}
+\usepackage{fontspec}
 \usepackage[english,russian]{babel}
 \usepackage{fullpage}
 %\usepackage{indentfirst}
@@ -127,10 +128,13 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
 \usepackage{tikz}
 %\usetikzlibrary{patterns}
 %\usepackage{listings}
-\usepackage{algorithmicx}
-\usepackage{algpseudocodex}
+%\usepackage{algorithmicx}
+%\usepackage{algpseudocodex}
 %\usepackage{algorithm2e}
-\usepackage{minted}
+\usepackage[outputdir=out]{minted}
+
+\setmainfont{Noto Sans}
+\setmonofont{JetBrains Mono}
 
 \begin{document}
     \hfill
@@ -168,8 +172,8 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
     \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
     \newcommand{\abs}[1]{\left | #1 \right |}
 
-    \input{task01} \clearpage
-    \input{task02} \clearpage
+    \input{task01}
+    \input{task02}
     % ...
 \end{document}
 ```
