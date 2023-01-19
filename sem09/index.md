@@ -1,4 +1,6 @@
 # Магистратура, семестр 1, осень 2022
+- [Общая ведомость](https://docs.google.com/spreadsheets/d/1kW2yMNsPF1cv2z16alb7HgbcdbEiW39bXXzJx7_VWRI/edit#gid=986344552)
+
 # [Расписание](./schedule.md)
 # Ссылки
 ## Разные вкусности
