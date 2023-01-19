@@ -15,6 +15,12 @@
 
 **Утечка данных** — протекание тестовой выборки в обучающую. Опасно тем, что метрика модели будет оцениваться неправильно, потому что может быть переобучение на _тестовых_ данных.
 
+**R<sup>2</sup>-score** — "доля объяснённой дисперсии":
+
+$$
+R^2 = 1 - \frac{\sum (h(\vec{x}_i) - y_i)^2}{\sum (\overline{y} - y_i)^2} < 1
+$$
+
 ## Scalers
 Масштабирование нужно для того, чтобы модель учитывала все фичи, а не только большие по модулю. Также может быть полезно центрировать фичу вокруг нуля.
 
@@ -44,11 +50,37 @@ $$
 
 
 ## Другое
+**Перцептрон:** класс — знак в линейной регрессии. Алгоритм поиска весов:
+1. Начать со случайными $W$
+2. Для каждого $\vec{x}_i \mid h(\vec{x}_i) \neq y_i$ выполнить $W \gets W + y_i \vec{x}_i$
+Алгоритм выше сходится, если множества линейно разделимы.
 
+Если неразделимы, то можно попытаться добавить признаков.
 
 # Экзамен
 ## Билет 1
 ### Регрессия, борьба с выбросами. RANSAC. Theil-Sen. Huber.
+**Theil-Sen** — обучить несколько моделей на подмножествах обучающей выборки, в качестве ответа брать медиану ответов нескольких моделей.
+
+**RANSAC (RANdom SAmple Consensus)** — обучить модели на подмножествах обучающей выборки, выбрать лучшую по количеству попаданий (полоса), обучить новую модель на этих попаданиях.
+
+**Huber regressor** — квадратичная ошибка для попаданий, линейная — для выбросов. Так выбросы влияют на результат значительно меньше.
+
+$$
+\begin{gather*}
+\min_{w, \sigma} \sum_{i=1}^N \left( \sigma + H_\varepsilon \left( \frac{\vec{x}_i W - y_i}{\sigma} \right) \sigma \right) + \alpha ||W||_2^2 \\
+H_m(z) =
+\begin{cases}
+    z^2 & |z| < \varepsilon \\
+    2 \varepsilon |z| - \varepsilon^2 & |z| \geq \varepsilon \\
+\end{cases} \\
+\end{gather*}
+$$
+
+$\sigma$ — константа масштабирования.
+
+Рекомендуется устанавливать $\varepsilon = 1.35$ для достижения 95% статистической эффективности.
+
 ### Кластеризация. kMeans, kMeans++, MeanShift, DBSCAN.
 **k-means:** количество кластеров предопределено. Кластер задаётся его **центроидом** (точкой). Плоскость (пространство) делится диаграммой Вороного (т.е. точка относится к тому кластеру, центроид которого к ней ближайший). Задача — минимизировать
 
@@ -127,6 +159,12 @@ $$
 4. Ввести $\beta_2$ как множитель для $(x_i \pm x_j)$
 5. Повторять с шага 2, пока $\alpha \cdot \sum_i \beta_i < -\Delta \text{Error}$
 
+**Elastic Net**
+
+$$
+L = ||XW - Y||_2^2 + \alpha ||W||_2^2 + \beta ||W||_1
+$$
+
 ### Деревья решений. Информационный выигрыш. Ошибка классификации, энтропия, критерий Джини.
 
 ## Билет 4
@@ -136,61 +174,44 @@ $$
 Можно дополнительно ввести $x_{i0} = 1$ и $w_0$ для удобства подсчёта смещения (bias). Тогда $\hat{M} = M + 1$.
 
 $$
-\text{MSE} = \frac{1}{N} \sum_{i=1}^N (W^T \vec{x}_i - y_i)^2 = \frac{1}{N} \Bigl| |X W - Y| \Bigr|_2^2
-$$
-
-$$
+\begin{gather*}
+\text{MSE} = \frac{1}{N} \sum_{i=1}^N (W^T \vec{x}_i - y_i)^2 = \frac{1}{N} \Bigl| |X W - Y| \Bigr|_2^2 \\
 X =
 \begin{bmatrix}
     1 & x_{11} & \cdots & x_{1M} \\
     \vdots & \vdots & \ddots & \vdots \\
     1 & x_{N1} & \cdots & x_{NM} \\
-\end{bmatrix}
-$$
-
-$$
+\end{bmatrix} \\
 Y =
 \begin{bmatrix}
     y_1 \\
     \vdots \\
     y_N \\
-\end{bmatrix}
-$$
-
-$$
+\end{bmatrix} \\
 W =
 \begin{bmatrix}
     w_0 \\
     w_1 \\
     \vdots \\
     w_M \\
-\end{bmatrix}
-$$
-
-$$
-L_\text{linear}(W) = N \cdot \text{MSE} = \Bigl| |X W - Y| \Bigr|_2^2
+\end{bmatrix} \\
+L_\text{linear}(W) = N \cdot \text{MSE} = \Bigl| |X W - Y| \Bigr|_2^2 \\
+\end{gather*}
 $$
 
 Минимизируем $\text{MSE} \sim L_\text{linear}$:
 
 $$
+\begin{gather*}
 \begin{aligned}
 L_\text{linear}(W)
 & = (X W - Y)^T (X W - Y) = \\
 & = (W^T X^T - Y^T) (X W - Y)
-\end{aligned}
-$$
-
-$$
-\nabla L_\text{linear}(W) = 2 X^T (X W - Y) = \vec{0}
-$$
-
-$$
-X^T X W = X^T Y
-$$
-
-$$
-W = (X^T X)^{-1} X^T Y
+\end{aligned} \\
+\nabla L_\text{linear}(W) = 2 X^T (X W - Y) = \vec{0} \\
+X^T X W = X^T Y \\
+W = (X^T X)^{-1} X^T Y \\
+\end{gather*}
 $$
 
 Можно перейти к полиномиальной регрессии, просто добавив признаки $x_{ij}^q$. Но слишком много признаков приведут к переобучению.
@@ -198,38 +219,28 @@ $$
 **Смещение и дисперсия (bias & variance)**:
 
 $$
-E_\text{out}(h^D) = \mathbb{E}_{\vec{x}} \left[ \left( h^D(\vec{x}) - f(\vec{x}) \right)^2 \right]
-$$
-
-$$
+\begin{gather*}
+E_\text{out}(h^D) = \mathbb{E}_{\vec{x}} \left[ \left( h^D(\vec{x}) - f(\vec{x}) \right)^2 \right] \\
 \begin{aligned}
 \mathbb{E}_D \left[ E_\text{out}(h^D) \right]
 & = \mathbb{E}_D \left[ \mathbb{E}_{\vec{x}} \left[ \left( h^D(\vec{x}) - f(\vec{x}) \right)^2 \right] \right] = \\
 & = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(\vec{x}) - f(\vec{x}) \right)^2 \right] \right] = \\
-\end{aligned}
-$$
-
-$$
-\overline{h}(\vec{x}) = \mathbb{E}_D \left[ h^D(\vec{x}) \right]
-$$
-
-$$
+\end{aligned} \\
+\overline{h}(\vec{x}) = \mathbb{E}_D \left[ h^D(\vec{x}) \right] \\
 \begin{aligned}
 & \mathbb{E}_D \left[ \left( h^D(\vec{x}) - f(\vec{x}) \right)^2 \right]
 = \mathbb{E}_D \left[ \left( h^D(\vec{x}) - \overline{h}(\vec{x}) + \overline{h}(\vec{x}) - f(\vec{x}) \right)^2 \right] = \\
 & = \mathbb{E}_D \left[ \left( h^D(\vec{x}) - \overline{h}(\vec{x}) \right)^2 + \left( \overline{h}(\vec{x}) - f(\vec{x}) \right)^2 + 2 \left( h^D(\vec{x}) - \overline{h}(\vec{x}) \right) \left( \overline{h}(\vec{x}) - f(\vec{x}) \right) \right] = \\
 & = \mathbb{E}_D \left[ \left( h^D(\vec{x}) - \overline{h}(\vec{x}) \right)^2 \right] + \left( \overline{h}(\vec{x}) - f(\vec{x}) \right)^2 \\
-\end{aligned}
-$$
-
-$$
+\end{aligned} \\
 \begin{aligned}
 \mathbb{E}_D \left[ E_\text{out}(h^D) \right]
 & = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(\vec{x}) - f(\vec{x}) \right)^2 \right] \right] = \\
 & = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(\vec{x}) - \overline{h}(\vec{x}) \right)^2 \right] + \left( \overline{h}(\vec{x}) - f(\vec{x}) \right)^2 \right] = \\
 & = \mathbb{E}_X \left[ \text{bias}(X) + \text{variance}(X) \right] = \\
 & = \text{bias} + \text{variance}
-\end{aligned}
+\end{aligned} \\
+\end{gather*}
 $$
 
 **Гребневая (Ridge) регрессия** — решение L2-регуляризации
@@ -333,6 +344,118 @@ $$
 
 ## Билет 8
 ### Гипотезы и дихотомии. Функция роста. Точка поломки. Доказательство полиномиальности функции роста в присутствии точки поломки.
+$E_\text{in}$ — ошибка в выборке. $E_\text{out}$ — ошибка вне выборки.
+
+$$
+\begin{aligned}
+E_\text{in}(h) & = \frac{1}{N} \sum_{i=1}{N} e(h(\vec{x}_i), f(\vec{x}_i)) \\
+E_\text{out}(h) & = \mathbb{E}_{\vec{x}} \left[ e(h(\vec{x}), f(\vec{x})) \right] \\
+\end{aligned}
+$$
+
+**Hoeffding's inequality:** вероятность того, что разница между ошибкой в выборке и вне выборки превысит $\varepsilon$.
+
+$$
+P\left[ |E_\text{in}(h) - E_\text{out}(h)| > \varepsilon \right] \leq 2 \exp(-\varepsilon^2 N)
+$$
+
+Но если тестируем $M$ гипотез:
+
+$$
+P\left[ |E_\text{in}(h) - E_\text{out}(h)| > \varepsilon \right] \leq M \exp(-\varepsilon^2 N)
+$$
+
+Очевидно, ситуация ухудшается при $M \to +\infty$
+
+- Гипотеза: $h : X \to \{ -1; 1 \}$
+- Дихотомия: $h : \{ \vec{x}_1; \ldots; \vec{x}_N\} \to \{ -1; 1 \}$
+- Всего дихотомий — не более $2^N$
+
+**Функция роста** $m_H(N)$ — максимальное количество дихотомий. $m_H(N) \leq 2^N$.
+
+$$
+m_H(N) = \max_{\vec{x}_1; \ldots; \vec{x}_N} |H(\vec{x}_1, \ldots, \vec{x}_N)|
+$$
+
+**Неравенство Вапника-Червоненкиса:**
+
+$$
+P\left[ |E_\text{in}(h) - E_\text{out}(h)| > \varepsilon \right] \leq 4 m_H(2N) \exp \left(-\frac{\varepsilon N}{8} \right)
+$$
+
+Например, для двухмерного перцептрона и датасета с $X = \{ 0; 1 \}^2$ количество дихотомий будет $m_H = 14 < 16 = 2^{|X|}$. То есть для _двухмерного перцептрона_ **точка поломки** (где впервые появляется датасет с $m_H < 2^N$) — $k = 4$.
+
+**Доказательство полиномиальности функции роста в присутствии точки поломки:**
+- Рассматриваем множество $X = \{ x_1; \ldots; x_N \}$
+- Количество дихотомий всего — $2^N$, не все из них возможны
+- Пусть $B(N, k) = m_H(N)$ с точкой поломки $k$ — максимально возможное количество дихотомий такое, что ни для каких $k$ точек нет всех возможных $2^k$ дихотомий
+    - $B(N, k) = \alpha + 2\beta$:
+    - $\alpha$ таких, что дихотомия по $\{ \vec{x}_1; \ldots; \vec{x}_{N - 1} \}$ встречается один раз (не только в $\alpha$, а вообще уникальна)
+    - Две по $\beta$ таких, что дихотомии по $\{ \vec{x}_1; \ldots; \vec{x}_{N - 1} \}$ не уникальны, а строки из разных $\beta$ отличаются только $h(\vec{x}_N)$
+- Лемма: $\alpha + \beta \leq B(N - 1, k)$, т.к. в $\alpha + \beta$ содержатся все дихотомии на $\{ \vec{x}_1; \ldots; \vec{x}_{N - 1} \}$
+- Лемма: $\beta \leq B(N - 1, k - 1)$. Пусть это не так. Тогда найдётся $2^{k - 1}$ дихотомий по $(k - 1)$ переменных в одной $\beta$. Тогда они же есть и во второй. Следовательно, добавив $x_N$, получаем набор с $2^k$ дихотомий по $k$ переменных в исходном $B(N, k)$, то есть противоречие.
+- Следовательно, $B(N, k) \leq B(N - 1, k - 1) + B(N - 1, k)$.
+- Следовательно, $B(N, k) \leq \sum_{i=0}^{k-1} \binom{N}{i}$:
+
+$$
+\begin{aligned}
+B(N, 1) & = 1 \\
+B(1, k) & = 2 \\
+B(N, k)
+& \leq B(N - 1, k) + B(N - 1, k - 1) \leq \\
+& \leq \sum_{i=0}^{k-1} \binom{N - 1}{i} + \sum_{i=0}^{k-2} \binom{N - 1}{i} = \\
+& = 1 + \sum_{i=1}^{k-1} \binom{N - 1}{i} + \sum_{i=1}^{k-1} \binom{N - 1}{i - 1} = \\
+& = 1 + \sum_{i=1}^{k-1} \binom{N}{i} = \\
+& = \sum_{i=0}^{k-1} \binom{N}{i}
+\end{aligned}
+$$
+
+А $\sum_{i=0}^{k-1} \binom{N}{i}$ — полином.
+
+**Размерность Вапника-Черваненкиса (VC-dimension)** — $d_\text{VC} = (k - 1)$, где $k$ — точка поломки. Например, для плоского перцептрона $d_\text{VC} = 3$. Тогда
+
+$$
+m_H(N) \leq \sum_{i=0}^{d_\text{VC}} \binom{N}{i} \leq N^{d_\text{VC}} + 1
+$$
+
+Для d-мерного перцептрона размерность Вапника-Черваненкиса — (d + 1). Доказательство — через обратимую матрицу:
+
+$$
+X =
+\left.
+\underbrace{
+\begin{bmatrix}
+1      &      0 & 0      & \cdots & 0      \\
+1      &      1 & 0      & \cdots & 0      \\
+1      &      0 & 1      & \cdots & 0      \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+1      &      0 & 0      & \cdots & 1      \\
+\end{bmatrix}
+}_{d + 1}
+\right\} d + 1
+$$
+
+Затем возьмём
+
+$$
+\begin{gather*}
+\vec{x}_{d + 2} = \sum_{i=1}^{d + 1} \alpha_i \vec{x}_i \\
+y_i = \text{sign}(\alpha_i) \\
+y_{d + 2} = -1 \\
+\end{gather*}
+$$
+
+Тогда $W^T \vec{x}_{d + 2} = \sum_{i=1}^{d + 1} (W^T \vec{x}_i \alpha_i \geq 0) \neq -1 = y_{d + 2}$, поскольку $W^T \vec{x_i} \cdot \text{sign}(\alpha_i) = 1$
+
+Позволяет оценить, сколько данных будет достаточно:
+
+$$
+\begin{gather*}
+4 m_H(2N) \exp \left(-\frac{\varepsilon N}{8} \right) \approx N^{d_\text{VC}} \exp(-N) \\
+N \geq 10 d_\text{VC} \\
+\end{gather*}
+$$
+
 ### Деревья решений. Прунинг. Небрежные решающие деревья. Нечеткие решающие деревья.
 
 ## Билет 9
@@ -345,15 +468,12 @@ $$
 **kNN (k Nearest Neighbors)** — ответ для точки определяется голосованием ответов её $k$ ближайших соседей из обучающей выборки. При этом для работы метода достаточно существования функции расстояния.
 
 $$
-h(\vec{x}, D, k) = \arg\max_{y \in Y} \sum_{\vec{x}_i \in D} \left[ y_i = y \right] w(\vec{x}_i, X, k)
-$$
-
-$$
-\begin{aligned}
-w(\vec{x}_i, x, k) & = 1 \text{, если $\vec{x}_i$ --- один из $k$ ближайших соседей x} \\
+\begin{gather*}
+h(\vec{x}, D, k) = \arg\max_{y \in Y} \sum_{\vec{x}_i \in D} \left[ y_i = y \right] w(\vec{x}_i, X, k) \\
+w(\vec{x}_i, x, k) = 1 \text{, если $\vec{x}_i$ --- один из $k$ ближайших соседей x} \\
 \text{или} \\
-w(\vec{x}_i, x, k) & = 1 \text{, если $\rho(\vec{x}_i, x) \leq \text{радиус $k$-го соседа}$ } \\
-\end{aligned}
+w(\vec{x}_i, x, k) = 1 \text{, если $\rho(\vec{x}_i, x) \leq \text{радиус $k$-го соседа}$ } \\
+\end{gather*}
 $$
 
 Метрика ошибки kNN: **leave-one-out error** — для каждой точки определяется её ответ, если её убрать из обучающей выборки, после этого считается точность (accuracy) классификации (т.к. функция ошибки, то инвертированная точность). Выбирается такое k, при котором достигается наилучшая точность (т.е. наименьшая ошибка).
