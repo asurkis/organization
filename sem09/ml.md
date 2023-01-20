@@ -50,7 +50,9 @@ $$
 
 
 ## Другое
+**Autoencoder** — нейросеть сжимает изображение до маленького вектора, затем генерирует из него исходное изображение. U-Net — НЕ автоэнкодер.
 
+**GAN** — Generative-Adversarial Networks. Функция потерь генерирующей нейросети — это нейросеть-детектор, которая учится отличать сгенерированные изображения от настоящих.
 
 # Экзамен
 ## Билет 1
@@ -128,6 +130,35 @@ $$
 
 ## Билет 2
 ### Смещение и дисперсия, понятие средней гипотезы.
+**Смещение и дисперсия (bias & variance)**:
+
+$$
+\begin{gather*}
+E_\text{out}(h^D) = \mathbb{E}_{X} \left[ \left( h^D(X) - f(X) \right)^2 \right] \\
+\begin{aligned}
+\mathbb{E}_D \left[ E_\text{out}(h^D) \right]
+& = \mathbb{E}_D \left[ \mathbb{E}_{X} \left[ \left( h^D(X) - f(X) \right)^2 \right] \right] = \\
+& = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(X) - f(X) \right)^2 \right] \right] = \\
+\end{aligned} \\
+\overline{h}(X) = \mathbb{E}_D \left[ h^D(X) \right] \\
+\begin{aligned}
+& \mathbb{E}_D \left[ \left( h^D(X) - f(X) \right)^2 \right]
+= \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) + \overline{h}(X) - f(X) \right)^2 \right] = \\
+& = \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) \right)^2 + \left( \overline{h}(X) - f(X) \right)^2 + 2 \left( h^D(X) - \overline{h}(X) \right) \left( \overline{h}(X) - f(X) \right) \right] = \\
+& = \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) \right)^2 \right] + \left( \overline{h}(X) - f(X) \right)^2 \\
+\end{aligned} \\
+\begin{aligned}
+\mathbb{E}_D \left[ E_\text{out}(h^D) \right]
+& = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(X) - f(X) \right)^2 \right] \right] = \\
+& = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) \right)^2 \right] + \left( \overline{h}(X) - f(X) \right)^2 \right] = \\
+& = \mathbb{E}_X \left[ \text{bias}(X) + \text{variance}(X) \right] = \\
+& = \text{bias} + \text{variance}
+\end{aligned} \\
+\end{gather*}
+$$
+
+**Средняя гипотеза:** $\overline{h}(X) = \mathbb{E}_D \left[ h^D(X) \right]$ — средняя по всем возможным гипотезам на датасете.
+
 ### Ансамбли. Soft and Hard Voting. Bagging. Случайный лес. AdaBoost.
 
 ## Билет 3
@@ -210,33 +241,6 @@ W = (X^T X)^{-1} X^T Y \\
 $$
 
 Можно перейти к полиномиальной регрессии, просто добавив признаки $x_{ij}^q$. Но слишком много признаков приведут к переобучению.
-
-**Смещение и дисперсия (bias & variance)**:
-
-$$
-\begin{gather*}
-E_\text{out}(h^D) = \mathbb{E}_{X} \left[ \left( h^D(X) - f(X) \right)^2 \right] \\
-\begin{aligned}
-\mathbb{E}_D \left[ E_\text{out}(h^D) \right]
-& = \mathbb{E}_D \left[ \mathbb{E}_{X} \left[ \left( h^D(X) - f(X) \right)^2 \right] \right] = \\
-& = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(X) - f(X) \right)^2 \right] \right] = \\
-\end{aligned} \\
-\overline{h}(X) = \mathbb{E}_D \left[ h^D(X) \right] \\
-\begin{aligned}
-& \mathbb{E}_D \left[ \left( h^D(X) - f(X) \right)^2 \right]
-= \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) + \overline{h}(X) - f(X) \right)^2 \right] = \\
-& = \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) \right)^2 + \left( \overline{h}(X) - f(X) \right)^2 + 2 \left( h^D(X) - \overline{h}(X) \right) \left( \overline{h}(X) - f(X) \right) \right] = \\
-& = \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) \right)^2 \right] + \left( \overline{h}(X) - f(X) \right)^2 \\
-\end{aligned} \\
-\begin{aligned}
-\mathbb{E}_D \left[ E_\text{out}(h^D) \right]
-& = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(X) - f(X) \right)^2 \right] \right] = \\
-& = \mathbb{E}_X \left[ \mathbb{E}_D \left[ \left( h^D(X) - \overline{h}(X) \right)^2 \right] + \left( \overline{h}(X) - f(X) \right)^2 \right] = \\
-& = \mathbb{E}_X \left[ \text{bias}(X) + \text{variance}(X) \right] = \\
-& = \text{bias} + \text{variance}
-\end{aligned} \\
-\end{gather*}
-$$
 
 **Гребневая (Ridge) регрессия** — решение L2-регуляризации
 
@@ -564,7 +568,44 @@ $$
 - Dropout — выкидывать часть нейронов во время обучения, обычно половину, не забывать масштабировать веса
 
 ## Билет 10
-### Сверточные нейронные сети. VGG. ResNet. Трансферное обучение.
+### Свёрточные нейронные сети. VGG. ResNet. Трансферное обучение.
+**Свёртка** — слой нейросети, преобразующий "прямоугольный" участок входного изображения в "пиксель" выходного изображения (каналы — сразу все со всеми). Лучше полносвязного слоя тем, что меньше и быстрее учится. Гиперпараметры: количество каналов ввода и вывода, размер ядра (kernel size), шаг (stride), дополнительная толщина границы (padding).
+
+Есть специальные свёртки — pooling — которые вычисляют результат не линейно, а по другой функции, например, извлечением минимума / максимума / медианы.
+
+**AlexNet** — одна из первых свёрточных нейронных сетей:
+- Масштабирует до 256 на 256, берёт случайные участки 224 на 224 и отражает их
+- Вычитает из каждого пикселя среднее по всем пикселям
+- ReLU
+- Dropout 0.5
+- Batch size 128
+- SGD с массой 0.9
+- L2 с коэффициентом 0.0005
+
+**VGG** (2014) от лаборатории Visual Geometry Group — Very Deep Convolutional Networks
+- Свёртки только 3 на 3 полностью заменяют все остальные
+- MaxPool
+- Ввод 224 на 224
+- 11, 13, 16 или 19 весовых свёрток
+- В конце FC-4096, FC-4096, FC-1000, soft-max
+
+**ResNet** (2015)
+- Использует skip connections — результаты свёрток отправляются не только в следующие свёртки, но и дальше
+- Достиг ошибки в 3.57%, что ниже ошибки человека
+- Дальше соревноваться на ImageNet бесполезно, потому что сам датасет содержит человеческую ошибку
+
+**Трансферное обучение:**
+- Берётся обученная нейросеть
+- Часть слоёв (обычно последние) заменяются на более новые
+- Проводится дообучение, старые слои замораживаются
+- В результате — очень быстрое обучение
+- Заморозка опциональна, можно "файн тюнить"
+
+**U-Net:**
+- Сегментация изображений
+- Выходы слоёв пробрасываются помимо следующего слоя ещё в самый конец, к тому же разрешению
+- Посередине — полносвязные слои на маленьких изображениях
+
 ### Метрические классификаторы. kNN. WkNN. Отбор эталонов. DROP5. KDtree.
 **kNN (k Nearest Neighbors)** — ответ для точки определяется голосованием ответов её $k$ ближайших соседей из обучающей выборки. При этом для работы метода достаточно существования функции расстояния.
 
