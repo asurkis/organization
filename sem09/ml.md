@@ -416,6 +416,112 @@ $$
 ## Билет 7
 ### Локальный поиск. Hill Climb и его разновидности. Отжиг. Генетический алгоритм.
 ### Метод опорных векторов. Прямая и двойственная задача. Решение двойственной задачи. Типы опорных векторов. Ядра.
+**SVM** (Support Vector Machine, метод опорных векторов).
+
+$$
+\min |W^T X_i - b| = \min \left( y_i (W^T X_i - b) \right) = 1
+$$
+
+Тогда ширина полосы:
+
+$$
+\frac{W^T (X_i - X_j)}{||W||} = \frac{2}{||W||}
+$$
+
+Задача — максимизировать $2 / ||W||$, т.е. минимизировать $||W||_2^2 = W^T W$. Задача оптимизации:
+
+$$
+\left\{
+\begin{aligned}
+    & \frac{1}{2} W^T W \to \min \\
+    & y_i (W^T X_i - b) \geq 1 \\
+\end{aligned} \right.
+$$
+
+Можно преобразовать к двойственной задаче:
+
+$$
+\begin{gather*}
+\left\{
+\begin{aligned}
+    & \frac{1}{2} W^T W \to \min \\
+    & 1 - y_i (W^T X_i - b) \leq 0 \\
+\end{aligned} \right. \\
+\mathcal{L}(W, b, \alpha) = \frac{1}{2} W^T W - \sum_{i=1}^N \alpha_i \left( y_i (W^T X_i - b) - 1 \right) \\
+\alpha_i \geq 0; \alpha_i \left( y_i (W^T X_i - b) - 1 \right) = 0 \\
+\end{gather*}
+$$
+
+Решение двойственной задачи:
+
+$$
+\begin{gather*}
+\nabla_W \mathcal{L}(W, b, \alpha) = W - \sum_{i=1}^N \alpha_i y_i X_i = \vec{0} \\
+W = \sum_{i=1}^N \alpha_i y_i X_i \\
+\frac{\delta}{\delta b} \mathcal{L}(W, b, \alpha) = \sum_{i=1}^N \alpha_i y_i = 0 \\
+\mathcal{L}(W, b, \alpha) = \frac{1}{2} W^T W - \sum_{i=1}^N \alpha_i (y_i (W^T X_i) - b) - 1) = \\
+= \frac{1}{2} \sum \sum y_i y_j \alpha_i \alpha_j X_i^T X_j - \\
+- \sum \sum y_i y_j \alpha_i \alpha_j X_i^T X_j + \sum \alpha_i = \\
+= \mathcal{L}(W, b, \alpha) = \sum_{i=1}^N \alpha_i - \frac{1}{2} \sum_{i,j=1}^N y_i y_j \alpha_i \alpha_j X_i^T X_j
+\end{gather*}
+$$
+
+Решается квадратичным программированием. Ход решения в целом: начать с $\alpha_i = 0$, взять $\alpha_i$ и $\alpha_j$ такие, что $y_i y_j < 0$, и начинаем их обе увеличивать. Потом можно брать альфы одного знака и их двигать в разные стороны (альфы не могут быть меньше нуля). Условие для CVXOPT:
+
+$$
+\begin{gather*}
+\left\{
+\begin{aligned}
+& \frac{1}{2} \alpha^T P \alpha + q^T \alpha \to \min \\
+& G \alpha \leq h \\
+& A \alpha = b \\
+\end{aligned}
+\right. \quad
+\begin{array}{cc}
+P = \left[ y_i y_j X_i^T X_j \right] & q = \left[ -1 \right] \\
+G = -I & h = \left[ 0 \right] \\
+A = Y^T & b = 0 \\
+\end{array}
+\end{gather*}
+$$
+
+Это работает при линейно разделимых классах. Классы могут быть линейно неразделимы. Тогда используют **ядра.** Ядерный трюк (kernel trick): можно не искать $\psi(X)$, а сразу искать $K(X, X') = \psi(X)^T \psi(X')$. Например:
+
+$$
+\begin{gather*}
+K(X, X') = (1 + X^T X')^2 = 1 + x_1^2 x_1'^2 + x_2^2 x_2'^2 + 2x_1 x_1' + 2x_2 x_2' + 2x_1 x_1' x_2 x_2' \\
+\psi(X) = (1, x_1^2, x_2^2, \sqrt{2} x_1, \sqrt{2} x_2, \sqrt{2} x_1 x_2) \\
+\end{gather*}
+$$
+
+Но тогда пропадает $W$. Но, поскольку веса — это линейная комбинация опорных векторов, а номера опорных векторов известны, то по-прежнему можно посчитать $W^T X_i = \sum_j \alpha_j y_j K(X_j, X_i)$.
+
+Иногда датасет линейно неразделим. Берём soft margin:
+
+$$
+\begin{gather*}
+\left\{
+\begin{aligned}
+& \frac{1}{2} W^T W + C \sum_{i=1}^N \xi_i \to \min \\
+& y_i (W^T X_i - b) \geq 1 - \xi_i \\
+& \xi_i \geq 0 \\
+\end{aligned}
+\right. \\
+\mathcal{L}(\alpha) = \sum \alpha_i - \frac{1}{2} \sum \sum y_i y_j \alpha_i \alpha_j X_i^T X_j \\
+\left\{
+\begin{aligned}
+& \max_\alpha \mathcal{L}(\alpha) = \sum \alpha_i - \frac{1}{2} \sum \sum y_i y_j \alpha_i \alpha_j X_i^T X_j \\
+& 0 \leq \alpha_i \leq C \\
+& \sum \alpha_i y_i = 0 \\
+\end{aligned}
+\right.
+\end{gather*}
+$$
+
+**Типы опорных векторов:**
+- $\alpha_i = 0; \xi_i = 0; y_i (W^T X_i - b) \geq 1$ — внутренние вектора
+- $0 < \alpha_i < C; \xi_i = 0; y_i (W^T X_i - b) = 1$ — "хорошие" опорные вектора, на полосе
+- $\alpha_i = C; \xi_i > 0; y_i (W^T X_i - b) \leq 1$ — "плохие" опорные вектора, внутри полосы
 
 ## Билет 8
 ### Гипотезы и дихотомии. Функция роста. Точка поломки. Доказательство полиномиальности функции роста в присутствии точки поломки.
