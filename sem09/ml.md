@@ -162,6 +162,29 @@ $$
 **Средняя гипотеза:** $\overline{h}(X) = \mathbb{E}_D \left[ h^D(X) \right]$ — средняя по всем возможным гипотезам на датасете.
 
 ### Ансамбли. Soft and Hard Voting. Bagging. Случайный лес. AdaBoost.
+**Ансамбли** — объединения нескольких моделей с голосованием.
+
+**Жёсткое голосование** — одна модель — один голос. **Мягкое** — вес голоса зависит от уверенности модели.
+
+**Случайный лес** — несколько деревьев обучаются на разных подвыборках (возможно, пересекающихся).
+
+**Bagging (bootstrap aggregating)** — случайная выборка с повторениями такого же размера, как и оригинальный датасет. На практике вместо новых точек просто старым присваивается вес больше 1.
+
+**Random subspaces** — случайная выборка фичей, а не точек.
+
+**Random patches** — случайная выборка и фичей, и точек.
+
+**AdaBoost (Adaptive Boosing)** — лес с деревьями глубины 1 ("пеньками"). $D_1(i) = 1/N$.
+
+$$
+\begin{gather*}
+E_t = \sum_{i=1}^N D_t(i) E(h_t(x_i), y_i) \\
+\text{вес гипотезы}~h_t : \alpha_t  = \frac{1}{2} \ln \left( \frac{1 - E_t}{E_t} \right) \\
+\text{для неправильной классификации}~D_{t+1}(i) = D_t(i) \exp(\alpha_t) \\
+\text{для правильной классификации}~D_{t+1}(i) = D_t(i) \exp(-\alpha_t) \\
+\text{затем нормализовать} \\
+\end{gather*}
+$$
 
 ## Билет 3
 ### Линейная регрессия. LASSO, LARS. CART. SVR.
@@ -293,6 +316,66 @@ $$
 
 ## Билет 5
 ### Градиентный бустинг решающих деревьев.
+
+$$
+\begin{gather*}
+H_{t + 1}(X) = H_t(X) + h_{t + 1}(X) \to y \Rightarrow \\
+\Rightarrow h_{t + 1}(X) \to y - H_t(X)
+\end{gather*}
+$$
+
+Можно добавить скорость обучения: $H_{t + 1}(X) = H_t(X) + \alpha h_{t + 1}(X)$.
+
+**XGBoost** (eXtreme Gradient Boosting): $H_t(X) = \sum_{i=1}^t h_i(X)$.
+
+$$
+E_t = \sum_{i=1}^N L(H_t(X_i), y_i) + \sum_{j=1}^t \Omega(h_j) \to \min
+$$
+
+Где $\Omega$ — регуляризация. В общем случае с разложением по Тейлору:
+
+$$
+\begin{gather*}
+E_t = \sum_{i=1}^N \left( L(H_{t - 1}(X_i), y_i + u_i h_t(X_i) + \frac{1}{2} (v_i(h_t(X_i)))^2 \right) + \Omega(h_t) + \text{Const} \\
+u_i = \delta_{H_{t - 1}(X_i)}(L(H_{t - 1}(X_i), y_i)) \\
+u_i = \delta^2_{H_{t - 1}(X_i)}(L(H_{t - 1}(X_i), y_i)) \\
+\end{gather*}
+$$
+
+На $t$-й гипотезе минимизируем
+
+$$
+\begin{gather*}
+E_t = \sum_{i=1}^N \left( u_i h_i(X_i) + \frac{1}{2} (v_i(h_t(X_i)))^2 \right) + \Omega(h_t) \to \min \\
+\Omega(f) = \gamma M + \frac{1}{2} \lambda \sum_{j=1}^M w_j^2 \\
+\end{gather*}
+$$
+
+$M$ — количество листьев, $w_j$ — выход листа $j$.
+
+$$
+E_t = \sum_{i=1}^N \left( u_i w_{q(X_i)} + \frac{1}{2} (v_i(w_{q(X_i)}))^2 \right) + \gamma M + \frac{1}{2} \lambda \sum_{j=1}^M w_j^2 \to \min
+$$
+
+$q(X_i)$ --- лист, соответствующий $X_i$. Группируем по листьям:
+
+$$
+\begin{gather*}
+E_t = \sum_{j=1}^M \left( \sum_{q(X_i) = j} u_i w_j + \frac{1}{2} \left( \sum_{q(X_i) = j} v_i + \lambda \right) w_j^2 \right) + \gamma M \\
+U_j = \sum_{q(X_i) = j} u_i \quad
+V_j = \sum_{q(X_i) = j} v_i \\
+E_t = \sum_{j=1}^M \left( U_j w_j + \frac{1}{2} (V_j + \lambda) w_j^2 \right) + \gamma M \\
+\end{gather*}
+$$
+
+$$
+\begin{gather*}
+w_j^\text{opt} = \frac{-U_j}{V_j + \lambda} \\
+E_t^\text{opt} = -\frac{1}{2} \sum_{j=1}^M \frac{U_j^2}{V_j + \lambda} + \gamma M \\
+\text{Gain} = \frac{1}{2} \left[ \frac{U_L^2}{V_L + \lambda} + \frac{U_R^2}{V_R + \lambda} - \frac{(U_L + U_R)^2}{V_L + V_R + \lambda} \right] \\
+\end{gather*}
+$$
+
 ### Кластеризация. Agglomerative Clustering. Метрики кластеризации.
 **Agglomerative clustering:** изначально каждая точка в своём кластере. Затем объединяются кластеры с наименьшим значением одной из метрик (обозначим кластеры как множества точек $A$ и $B$):
 - Average — $\text{mean}(\rho(x, y)) \mid (x, y) \in A \times B$, среднее расстояние между точками в двух кластерах
