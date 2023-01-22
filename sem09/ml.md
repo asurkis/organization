@@ -221,6 +221,18 @@ $$
 I_V(X) = \sum_{x_i \in X} \sum_{x_j \in X} \frac{1}{2} (y_i - y_j)^2
 $$
 
+**SVR** — SVM для регрессии:
+
+$$
+\left\{
+\begin{aligned}
+& \frac{1}{2}||W||^2 + C \sum (\xi_i + \xi_i^*) \to \min \\
+& y_i - W^T X_i - b \leq \varepsilon + \xi_i \\
+& W^T X_i + b - y_i \leq \varepsilon + \xi_i^* \\
+& \xi_i \xi_i^* \geq 0
+\end{aligned} \right.
+$$
+
 ### Деревья решений. Информационный выигрыш. Ошибка классификации, энтропия, критерий Джини.
 **Решающие деревья:**
 + Интерпретируемость
