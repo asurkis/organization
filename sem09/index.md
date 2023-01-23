@@ -20,14 +20,14 @@
 - Почта: mailto:alexander.mishunin@gmail.com
 - [Таблица с оценками](https://docs.google.com/spreadsheets/d/11wMfO1UxDqdLJHgcCRacJtivrE7vZI20yKYbMG2blDc/edit#gid=0)
 
-## Машинное обучение
+## Машинное обучение \[сдал на 4\]
 - [Telegram-чат](https://t.me/+7Cug4PWpPNBmODhi)
 - [Google Drive курса](https://drive.google.com/drive/folders/1Onm5w8_GV5GhM-RoJNxZ71fxar6c1uxQ)
 - [Таблица с оценками](https://docs.google.com/spreadsheets/d/1sxlH0mmq2TPDSBGayyYaPZLnyqPU9fc07W_efvKO_yM/edit?usp=drive_web&ouid=110272677983187379651)
 - Вопросы к экзамену — в гугл-драйве
 - [Мои билеты](./ml.md)
 
-## C++ Hard
+## C++ Hard \[сдал\]
 - [Discord](https://discord.gg/TamhjH99)
 - [Telegram-канал](https://t.me/+3C_FV6gTykY4MTJi)
 - [GitHub курса](https://github.com/cpp-practice/cpp-public-2223)
@@ -39,35 +39,6 @@
 
 ### Просто полезные ссылки
 - [CppReference](https://en.cppreference.com/)
-
-## Базы данных
-- [CSC Wiki](https://wiki.compscicenter.ru/index.php/DB_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
-- [Telegram-канал](https://t.me/+tQx2cPUFhDs0ZGU6)
-- [Zoom](https://zoom.us/j/96065781899?pwd=SlNaeHlmbDg1L2V2MThaMEc3M0haQT09) (от 26.09.2022)
-- [Контестный сервер](http://52.215.151.195/)
-
-## Дискретная математика \[сдал\]
-- [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%B0_%D0%B8_%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
-- [Общий Telegram-чат](https://t.me/+LeW8hfZQZyk3MmJi)
-- [Конспекты лекций 2021](https://wiki.compscicenter.ru/images/5/50/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B_%D0%94%D0%9C_16_09_2021.pdf)
-- [Вопросы к экзамену 2021](https://wiki.compscicenter.ru/images/9/93/%D0%9E%D1%81%D0%B5%D0%BD%D1%8C_2021-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%BA-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%83_%D0%98%D0%A2%D0%9C%D0%9E.pdf)
-
-### Практика, Самойлова
-- Почта: mailto:geraolga91@gmail.com
-- [Telegram-чат](https://t.me/+jSszZymbKXcyMWQy)
-- [Таблица для решённых задач](https://docs.google.com/spreadsheets/d/1xAXKghsBmfy4ohmDeNuoAW2wEdrWC_UH0ntqlej8Fb8/edit?usp=drivesdk)
-- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1YWCFGlpyGLqgigMqKawI8oVh_i-tkh5z8X2kamyuyio/edit#gid=1129858061)
-
-## Unix \[сдал\]
-- [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
-- [Telegram-чат](https://t.me/+QH275TZPXBs2ODUy)
-- [Zoom](https://zoom.us/j/96967343753?pwd=d0lObTNuL1RKUUtyazB5UTVqQVQ1UT09) (от 05.10.2022)
-
-## Python \[сдал\]
-- [CSC Wiki](https://wiki.compscicenter.ru/index.php/Python_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
-- [CS Shelter](https://www.cs-shelter.xyz/itmo-5se-22/python-22)
-- [Telegram-канал](https://t.me/+JFe2oi-DmwU1YTk6)
-- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1YRh-u8lqUHld8XtJM2L4QEwCmG4bE7gzHZq-HjCHmDc/edit#gid=0)
 
 ## Функциональное программирование \[сдал\]
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%A4%D0%9F_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
@@ -114,6 +85,35 @@
 
 ### Просто полезные ссылки
 - [Hoogle](https://hoogle.haskell.org/)
+
+## Базы данных \[сдал\]
+- [CSC Wiki](https://wiki.compscicenter.ru/index.php/DB_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
+- [Telegram-канал](https://t.me/+tQx2cPUFhDs0ZGU6)
+- [Zoom](https://zoom.us/j/96065781899?pwd=SlNaeHlmbDg1L2V2MThaMEc3M0haQT09) (от 26.09.2022)
+- [Контестный сервер](http://52.215.151.195/)
+
+## Дискретная математика \[сдал\]
+- [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%B0_%D0%B8_%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
+- [Общий Telegram-чат](https://t.me/+LeW8hfZQZyk3MmJi)
+- [Конспекты лекций 2021](https://wiki.compscicenter.ru/images/5/50/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B_%D0%94%D0%9C_16_09_2021.pdf)
+- [Вопросы к экзамену 2021](https://wiki.compscicenter.ru/images/9/93/%D0%9E%D1%81%D0%B5%D0%BD%D1%8C_2021-%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B-%D0%BA-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D1%83_%D0%98%D0%A2%D0%9C%D0%9E.pdf)
+
+### Практика, Самойлова
+- Почта: mailto:geraolga91@gmail.com
+- [Telegram-чат](https://t.me/+jSszZymbKXcyMWQy)
+- [Таблица для решённых задач](https://docs.google.com/spreadsheets/d/1xAXKghsBmfy4ohmDeNuoAW2wEdrWC_UH0ntqlej8Fb8/edit?usp=drivesdk)
+- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1YWCFGlpyGLqgigMqKawI8oVh_i-tkh5z8X2kamyuyio/edit#gid=1129858061)
+
+## Python \[сдал\]
+- [CSC Wiki](https://wiki.compscicenter.ru/index.php/Python_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
+- [CS Shelter](https://www.cs-shelter.xyz/itmo-5se-22/python-22)
+- [Telegram-канал](https://t.me/+JFe2oi-DmwU1YTk6)
+- [Таблица с оценками](https://docs.google.com/spreadsheets/d/1YRh-u8lqUHld8XtJM2L4QEwCmG4bE7gzHZq-HjCHmDc/edit#gid=0)
+
+## Unix \[сдал\]
+- [CSC Wiki](https://wiki.compscicenter.ru/index.php/Unix_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
+- [Telegram-чат](https://t.me/+QH275TZPXBs2ODUy)
+- [Zoom](https://zoom.us/j/96967343753?pwd=d0lObTNuL1RKUUtyazB5UTVqQVQ1UT09) (от 05.10.2022)
 
 ## Английский (Sarah Daniali) \[сдал\]
 - [Zoom](https://itmo.zoom.us/j/3283483862)
