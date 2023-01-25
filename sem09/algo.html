@@ -704,11 +704,20 @@ pre.rouge {
 <li><a href="#_анализ_глубины_рекурсии">Анализ глубины рекурсии</a></li>
 <li><a href="#_элиминация_хвостовой_рекурсии">Элиминация хвостовой рекурсии</a></li>
 <li><a href="#_introsort">IntroSort</a></li>
-<li><a href="#_массивы_с_малым_количеством_различных_элементов">Массивы с малым количеством различных элементов</a></li>
-<li><a href="#_quicksort3">QuickSort3</a></li>
+<li><a href="#_массивы_с_малым_количеством_различных_элементов_quicksort3">Массивы с малым количеством различных элементов, QuickSort3</a></li>
 </ul>
 </li>
-<li><a href="#_6_линейные_сортировки_и_порядковые_статистики">6. Линейные сортировки и порядковые статистики</a></li>
+<li><a href="#_6_линейные_сортировки_и_порядковые_статистики">6. Линейные сортировки и порядковые статистики</a>
+<ul class="sectlevel2">
+<li><a href="#_сортировка_подсчётом">Сортировка подсчётом</a></li>
+<li><a href="#_стабильность">Стабильность</a></li>
+<li><a href="#_цифровая_сортировка">Цифровая сортировка</a></li>
+<li><a href="#_bucket_sort">Bucket sort</a></li>
+<li><a href="#_порядковые_статистики">Порядковые статистики</a></li>
+<li><a href="#_поиск_порядковой_статистики">Поиск порядковой статистики</a></li>
+<li><a href="#_медиана_медиан">Медиана медиан</a></li>
+</ul>
+</li>
 <li><a href="#_7_динамическое_программирование_1">7. Динамическое программирование 1</a></li>
 <li><a href="#_8_динамическое_программирование_2">8. Динамическое программирование 2</a></li>
 <li><a href="#_9_жадные_алгоритмы_1">9. Жадные алгоритмы 1</a></li>
@@ -1568,7 +1577,7 @@ QuickSort3.</p>
 <br>
 \$T(n) = O(n) + 2 / (n - 1) sum_(i=2)^(n - 1) T(i) &lt;=\$
 \$&lt;= alpha n + (2 beta) / (n - 1) sum_(i=2)^(n - 1) (i log i) =\$
-\$= alpha n + (2 beta) / (n - 1) (sum_(i=2)^n' i log i + sum_(i=n' + 1)^(n - 1) i log i) &lt;=\$
+\$= alpha n + (2 beta) / (n - 1) (sum_(i=2)^(n') i log i + sum_(i=n' + 1)^(n - 1) i log i) &lt;=\$
 \$&lt;= alpha n + (2 beta) / (n - 1) (log n/2 * sum_(i=2)^n' i + log n * sum_(i=n' + 1)^(n - 1) i) =\$
 \$= alpha n + (2 beta) / (n - 1) (log n * sum_(i=2)^(n - 1) i - log 2 * sum_(i=2)^n' i) &lt;=\$
 \$&lt;= alpha n + (2 beta) / (n - 1) (log n * ((n + 1)(n - 2))/2 - log 2 * ((n' + 2)(n' - 1))/2) &lt;=\$
@@ -1606,7 +1615,7 @@ QuickSort3.</p>
 <div class="content">
 \$D(n)
 = 1 + 1 / (n - 1) sum_(i=0)^(n - 1) max(beta * log i, beta * log(n - i - 1)) =\$
-\$= 1 + (2 beta) / (n - 1) sum_(i=ceil((n - 1)/2))^(n - 1) log i) &lt;=\$
+\$= 1 + (2 beta) / (n - 1) sum_(i=ceil((n - 1) // 2))^(n - 1) log i &lt;=\$
 \$&lt;= 1 + beta / (n - 1) * (n - 1) * log n =\$
 \$= 1 + beta * log n in O(log n) \\$
 </div>
@@ -1636,18 +1645,19 @@ QuickSort3.</p>
 </div>
 <div class="paragraph">
 <p>Преимущества:
-+ Гарантированно \$O(n log n)\$ по сравнению с обычной быстрой сортировкой, где в худшем случае \$O(n^2)\$
-+ Небольшая константа, как и у быстрой сортировки
-+ Может тратить меньше памяти, чем сортировки с гарантированным \$O(n log n)\$</p>
+* Гарантированно \$O(n log n)\$ по сравнению с обычной быстрой сортировкой, где в худшем случае \$O(n^2)\$
+* Небольшая константа, как и у быстрой сортировки
+* Может тратить меньше памяти, чем сортировки с гарантированным \$O(n log n)\$</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_массивы_с_малым_количеством_различных_элементов">Массивы с малым количеством различных элементов</h3>
-
+<h3 id="_массивы_с_малым_количеством_различных_элементов_quicksort3">Массивы с малым количеством различных элементов, QuickSort3</h3>
+<div class="paragraph">
+<p>Отдельно выносим группу элементов, равных "поворотному",
+тогда получается 3 отрезка с элементами
+строго меньше, строго равными, и строго большими поворотного.
+Очевидно, равные сортировать уже не нужно, и этот отрезок не пустой.</p>
 </div>
-<div class="sect2">
-<h3 id="_quicksort3">QuickSort3</h3>
-
 </div>
 </div>
 </div>
@@ -1655,9 +1665,181 @@ QuickSort3.</p>
 <h2 id="_6_линейные_сортировки_и_порядковые_статистики">6. Линейные сортировки и порядковые статистики</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Сортировка подсчётом, стабильность. Цифровая сортировка. Bucket sort для
-равномерно распределённых вещественных чисел. Порядковые статистики,
-нахождение за линейное в среднем время. Медиана медиан.</p>
+<p>Сортировка подсчётом, стабильность.
+Цифровая сортировка.
+Bucket sort для равномерно распределённых вещественных чисел.
+Порядковые статистики, нахождение за линейное в среднем время.
+Медиана медиан.</p>
+</div>
+<div class="sect2">
+<h3 id="_сортировка_подсчётом">Сортировка подсчётом</h3>
+<div class="paragraph">
+<p>Если сортируем целые числа из ограниченного \$O(n)\$ диапазона,
+то можно посчитать количество каждого числа за \$O(n)\$,
+затем восстановить уже отсортированный массив за \$O(n)\$.
+Это не сортировка сравнением, поэтому не имеет \$Omega(n log n)\$,
+и работает за \$O(n)\$.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="julia"><span class="k">function</span><span class="nf"> count_sort</span><span class="x">(</span><span class="n">arr</span><span class="x">)</span>
+    <span class="n">min_</span> <span class="o">=</span> <span class="n">minimum</span><span class="x">(</span><span class="n">arr</span><span class="x">)</span>
+    <span class="n">max_</span> <span class="o">=</span> <span class="n">maximum</span><span class="x">(</span><span class="n">arr</span><span class="x">)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">fill</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">max_</span> <span class="o">-</span> <span class="n">min_</span> <span class="o">+</span> <span class="mi">1</span><span class="x">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="x">(</span><span class="n">arr</span><span class="x">)</span>
+        <span class="n">counts</span><span class="x">[</span><span class="n">arr</span><span class="x">[</span><span class="n">i</span><span class="x">]</span> <span class="o">-</span> <span class="n">min_</span> <span class="o">+</span> <span class="mi">1</span><span class="x">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">d</span> <span class="o">=</span> <span class="n">min_</span><span class="o">:</span><span class="n">max_</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">counts</span><span class="x">[</span><span class="n">d</span> <span class="o">-</span> <span class="n">min_</span> <span class="o">+</span> <span class="mi">1</span><span class="x">]</span>
+            <span class="n">arr</span><span class="x">[</span><span class="n">i</span><span class="x">]</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="k">end</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+    <span class="n">arr</span>
+<span class="k">end</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_стабильность">Стабильность</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="julia"><span class="k">function</span><span class="nf"> count_sort_key</span><span class="x">(</span><span class="n">key</span><span class="x">,</span> <span class="n">arr</span><span class="x">)</span>
+    <span class="n">min_</span> <span class="o">=</span> <span class="n">minimum</span><span class="x">(</span><span class="n">key</span><span class="x">,</span> <span class="n">arr</span><span class="x">)</span>
+    <span class="n">max_</span> <span class="o">=</span> <span class="n">maximum</span><span class="x">(</span><span class="n">key</span><span class="x">,</span> <span class="n">arr</span><span class="x">)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">fill</span><span class="x">(</span><span class="mi">0</span><span class="x">,</span> <span class="n">max_</span> <span class="o">-</span> <span class="n">min_</span> <span class="o">+</span> <span class="mi">1</span><span class="x">)</span>
+    <span class="k">for</span> <span class="n">e</span><span class="o">=</span><span class="n">arr</span>
+        <span class="n">counts</span><span class="x">[</span><span class="n">key</span><span class="x">(</span><span class="n">e</span><span class="x">)</span> <span class="o">-</span> <span class="n">min_</span> <span class="o">+</span> <span class="mi">1</span><span class="x">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+    <span class="n">iters</span> <span class="o">=</span> <span class="n">fill</span><span class="x">(</span><span class="mi">1</span><span class="x">,</span> <span class="n">size</span><span class="x">(</span><span class="n">counts</span><span class="x">))</span>
+    <span class="n">iters</span><span class="x">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="x">]</span> <span class="o">.+=</span> <span class="n">cumsum</span><span class="x">(</span><span class="n">counts</span><span class="x">[</span><span class="mi">1</span><span class="o">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="x">])</span>
+    <span class="n">sorted</span> <span class="o">=</span> <span class="n">similar</span><span class="x">(</span><span class="n">arr</span><span class="x">)</span>
+    <span class="k">for</span> <span class="n">e</span><span class="o">=</span><span class="n">arr</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">key</span><span class="x">(</span><span class="n">e</span><span class="x">)</span> <span class="o">-</span> <span class="n">min_</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">sorted</span><span class="x">[</span><span class="n">iters</span><span class="x">[</span><span class="n">k</span><span class="x">]]</span> <span class="o">=</span> <span class="n">e</span>
+        <span class="n">iters</span><span class="x">[</span><span class="n">k</span><span class="x">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">end</span>
+    <span class="n">sorted</span>
+<span class="k">end</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_цифровая_сортировка">Цифровая сортировка</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Сортируем стабильным подсчётом младшие разряды</p>
+</li>
+<li>
+<p>Сортируем стабильным подсчётом старшие разряды</p>
+</li>
+<li>
+<p>И т.д. пока разряды не кончатся</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="julia"><span class="k">function</span><span class="nf"> radix_sort</span><span class="x">(</span><span class="n">arr</span><span class="x">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">8</span>
+        <span class="n">arr</span> <span class="o">=</span> <span class="n">count_sort_key</span><span class="x">(</span><span class="n">n</span> <span class="o">-&gt;</span> <span class="n">n</span> <span class="o">÷</span> <span class="mi">256</span><span class="o">^</span><span class="x">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="x">)</span> <span class="o">%</span> <span class="mi">256</span><span class="x">,</span> <span class="n">arr</span><span class="x">)</span>
+    <span class="k">end</span>
+    <span class="n">arr</span>
+<span class="k">end</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Или:
+. Сортируем старшие разряды
+. Отрезки по старшим цифрам сортируем по младшим разрядам</p>
+</div>
+<div class="paragraph">
+<p>Второй вариант можно использовать для лексикографической сортировки.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bucket_sort">Bucket sort</h3>
+<div class="paragraph">
+<p>При равномерном распределении чисел по отрезку можно разбить отрезок на "корзины,"
+и каждую корзину отсортировать вставками.</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\$bbb "E"[T(N)] = bbb "E" [sum_(i=1)^N O(n_i^2)]\$
+<br>
+\$bbb "E"[n_i] = 1 " по равномерному распределению"\$
+<br>
+\$bbb "E"[n_i^2] = bbb "D"[n_i] + bbb "E"^2 [n_i]\$
+<br>
+\$P[n_i = k] = binom(N)(k) p^k (1 - p)^k\$
+<br>
+\$p = 1/n\$
+<br>
+\$bbb "D"[n_i] = N p (1 - p) = N * 1/N * (1 - 1/N) = 1 - 1/N\$
+<br>
+\$bbb "E"[n_i^2] = bbb "D"[n_i] + bbb "E"^2 [n_i] = (1 - 1/N) + 1^2 = 2 - 1/N\$
+<br>
+\$bbb "E"[T(N)] = sum_(i=1)^N bbb "E"(n_i^2) =\$
+\$= sum_(i=1)^N (2 - 1/N) =\$
+\$= 2N - 1 in O(N)\$
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_порядковые_статистики">Порядковые статистики</h3>
+<div class="paragraph">
+<p>\$k\$-я порядковая статистика&#8201;&#8212;&#8201;элемент,
+который в отсортированном массиве будет стоять на \$k\$-й позиции.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_поиск_порядковой_статистики">Поиск порядковой статистики</h3>
+<div class="paragraph">
+<p>Можно заметить, что точка поворота в быстрой сортировке
+встаёт на своё место при разделении массива.
+Тогда нам точно известно, в каком подмассиве будет искомый элемент.
+Тогда</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\$bbb "E"[T(n, k)] = O(n) + 1/n * sum_(i=0)^(k-1) bbb "E"[T(n - i - 1)] + 1/n * sum_(i=k+1)^(n-1) bbb "E"[T(i)] &lt;=\$
+\$&lt;= O(n) + 1/n * sum_(i=ceil(n//2))^(n - 1) bbb "E"[T(i)] = O(n)\$
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_медиана_медиан">Медиана медиан</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Разбиваем массив на отрезки по 5 элементов</p>
+</li>
+<li>
+<p>Находим медиану в каждом отрезке (\$O(1)\$ на каждом подотрезке,
+всего \$O(n)\$, т.к. количество элементов&#8201;&#8212;&#8201;константа)</p>
+</li>
+<li>
+<p>Рекурсивно находим медиану от найденных медиан</p>
+</li>
+<li>
+<p>Точно знаем, что есть элементы, транзитивно не большие / не меньшие найденного,
+и их как минимум \$3 * floor(floor(n // 5) / 2) + 2\$.
+Осталось не более \$ceil((2n)/5)\$ элементов, которые могут быть медианой,
+причём медиана из них будет медианой массива.
+Дальше ищем рекурсивно</p>
+</li>
+</ol>
+</div>
+<div class="stemblock">
+<div class="content">
+\$T(n) &lt;= T(ceil(n/5)) + T(ceil((2n)/5)) + O(n) &lt;=\$
+\$&lt;= 2 T(ceil((2n)/5)) + O(n)\$
+<br>
+\$2 &lt; (5/2)^1 =&gt; T(n) in O(n)\$
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1771,7 +1953,7 @@ d-ичной кучей).</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-25 14:42:28 +0300
+Last updated 2023-01-25 17:03:01 +0300
 </div>
 </div>
 <script type="text/x-mathjax-config">
