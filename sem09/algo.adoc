@@ -368,6 +368,35 @@ a < b^d => T(n) in O(n^d)
 a = b^d => T(n) in O(n^d log n)
 ++++
 
+Доказательство:
+на stem:[k]-м уровне рекурсии -- stem:[a^k * O((n / b^k)^d) действий.
+Всего:
+[stem]
+++++
+T(n) = sum_(k=0)^(log_b n) a^k * O((n / b^k)^d) = \
+= O(n^d) * sum_(k=0)^(log_b n) (a / b^d)^k = \
+= {
+[O(n^d) * O(1), a < b^d],
+[O(n^d) * O(log_b n), a = b^d],
+[O(n^d) * O((a / b^d)^(log_b n)), a > b^d]
+} = \
+= {
+[O(n^d), a < b^d],
+[O(n^d * log n), a = b^d],
+[O((n^d * a^(log_b n)) / (b^(log_b n))^d), a > b^d]
+} = \
+= {
+[O(n^d), a < b^d],
+[O(n^d * log n), a = b^d],
+[O((n^d * a^(log_b n)) / (n^d)), a > b^d]
+} = \
+= {
+[O(n^d), a < b^d],
+[O(n^d * log n), a = b^d],
+[O(a^(log_b n)), a > b^d]
+}
+++++
+
 === Двоичный поиск
 Заводим предикат stem:[P(i) | forall j > i : P(i) -> P(j)],
 т.е. он становится верным в какой-то точке, и во всех последующих он тоже верен.

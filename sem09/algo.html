@@ -1324,6 +1324,37 @@ O-символика как инструмент оценки ресурсов,
 \$a = b^d =&gt; T(n) in O(n^d log n)\$
 </div>
 </div>
+<div class="paragraph">
+<p>Доказательство:
+на \$k\$-м уровне рекурсии&#8201;&#8212;&#8201;stem:[a^k * O((n / b<sup>k)</sup>d) действий.
+Всего:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\$T(n) = sum_(k=0)^(log_b n) a^k * O((n / b^k)^d) =\$
+\$= O(n^d) * sum_(k=0)^(log_b n) (a / b^d)^k =\$
+\$= {
+[O(n^d) * O(1), a &lt; b^d],
+[O(n^d) * O(log_b n), a = b^d],
+[O(n^d) * O((a / b^d)^(log_b n)), a &gt; b^d]
+} =\$
+\$= {
+[O(n^d), a &lt; b^d],
+[O(n^d * log n), a = b^d],
+[O((n^d * a^(log_b n)) / (b^(log_b n))^d), a &gt; b^d]
+} =\$
+\$= {
+[O(n^d), a &lt; b^d],
+[O(n^d * log n), a = b^d],
+[O((n^d * a^(log_b n)) / (n^d)), a &gt; b^d]
+} =\$
+\$= {
+[O(n^d), a &lt; b^d],
+[O(n^d * log n), a = b^d],
+[O(a^(log_b n)), a &gt; b^d]
+}\$
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_двоичный_поиск">Двоичный поиск</h3>
@@ -3360,7 +3391,7 @@ Bucket sort для равномерно распределённых вещес�
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-26 18:04:19 +0300
+Last updated 2023-01-27 15:27:16 +0300
 </div>
 </div>
 <script type="text/x-mathjax-config">
