@@ -11,7 +11,7 @@
 - [Discord](https://discord.gg/YnmwRdSp7d)
 - [Telegram](https://t.me/+a0A89gygHzcxYWMy)
 
-## Алгоритмы
+## Алгоритмы \[сдал на 5\]
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%D1%8B_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-чат](https://t.me/+SoCfgbO4P600ZTMy)
 - [Zoom](https://zoom.us/j/91496078686?pwd=TzZraEtwNURLbFV5WXFnYjJscUFFZz09) (от 06.10.2022)
@@ -27,7 +27,7 @@
 - Вопросы к экзамену — в гугл-драйве
 - [Мои билеты](./ml.md)
 
-## C++ Hard \[сдал\]
+## C++ Hard \[сдал на 5\]
 - [Discord](https://discord.gg/TamhjH99)
 - [Telegram-канал](https://t.me/+3C_FV6gTykY4MTJi)
 - [GitHub курса](https://github.com/cpp-practice/cpp-public-2223)
@@ -40,7 +40,7 @@
 ### Просто полезные ссылки
 - [CppReference](https://en.cppreference.com/)
 
-## Функциональное программирование \[сдал\]
+## Функциональное программирование \[сдал на 5\]
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%A4%D0%9F_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-чат Эдгара](https://t.me/+q74XyuMQUxQwZWIy)
 - [Вопросы к экзамену](https://wiki.compscicenter.ru/images/c/c0/QExamIFMO2022.pdf)
@@ -86,13 +86,13 @@
 ### Просто полезные ссылки
 - [Hoogle](https://hoogle.haskell.org/)
 
-## Базы данных \[сдал\]
+## Базы данных \[сдал на 5\]
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/DB_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Telegram-канал](https://t.me/+tQx2cPUFhDs0ZGU6)
 - [Zoom](https://zoom.us/j/96065781899?pwd=SlNaeHlmbDg1L2V2MThaMEc3M0haQT09) (от 26.09.2022)
 - [Контестный сервер](http://52.215.151.195/)
 
-## Дискретная математика \[сдал\]
+## Дискретная математика \[сдал на 5\]
 - [CSC Wiki](https://wiki.compscicenter.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%BA%D0%B0_%D0%B8_%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2_5SE_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C_2022)
 - [Общий Telegram-чат](https://t.me/+LeW8hfZQZyk3MmJi)
 - [Конспекты лекций 2021](https://wiki.compscicenter.ru/images/5/50/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B_%D0%94%D0%9C_16_09_2021.pdf)
