@@ -1,1 +1,164 @@
-asdasdf
+\section{Лекция 1}
+
+\subsection{История эволюции Java}
+\begin{itemize}
+    \item 1996: Java Development Kit 1.0, JLS 1.0, JVM 1.0, минимальная стандартная библиотека
+    \item 1997: JDK 1.1, JLS 2.0, ...для кофеварок...
+    \item 1998: J2SE 1.2, <<Java 2>>, разделение на SE/EE, JVM 2.0
+    \item 2000: J2SE 1.3, выделена ME
+    \item 2002: J2SE 1.4
+    \item 2004: Java 5.0 --- появляется JIT, изменение нумерации, JLS 3.0. Generics
+    \item 2006: Java SE 6, уход от понятия <<Java 2>>
+    \item 2011: Java SE 7
+    \item 2014: Java SE 8. Stream, lambdas
+    \item 2017: Java SE 9. Модули
+    \item 2018: Java SE 10. Var
+    \item 2019: Java SE 11. JShell (т.е. REPL)
+    \item 2019: Java SE 12
+    \item 2019: Java SE 13
+    \item 2020: Java SE 14
+    \item 2020: Java SE 15
+    \item 2021: Java SE 16
+    \item 2021: Java SE 17. LTS
+\end{itemize}
+
+\paragraph{Зачем появился Kotlin?}
+У Java есть обратная совместимость,
+а у обратной совместимости есть цена.
+
+Маскот Java --- Дюк.
+Java читается как Джава,
+не Ява, несмотря на остров,
+в честь которого названа.
+
+\paragraph{Зачем появилась Java?}
+Плюсы --- быстрый язык, на котором очень сложно писать \emph{большие} программы.
+Также \emph{очень много} несовместимости между компиляторами.
+Kotlin и C\# --- очень хорошие языки, легко можно перейти с Java на них,
+но не в обратную сторону.
+
+\subsection{Компиляция}
+\paragraph{Подход C++}
+исходный код $\to$
+машинный код $\to$
+процессор. \\
+Программа работает только на той платформе, под которую скомпилирована.
+
+\paragraph{Подход Java}
+исходный код $\to$
+байткод виртуальной машины $\to$
+виртуальная машина $\to$
+процессор. \\
+Программа работает на любой платформе, где есть виртуальная машина Java.
+
+Уже скомпилированный код Java --- кроссплатформенный.
+Java \emph{гарантирует идентичность} выполнения на разных платформах.
+Виртуальная машина Java должна быть \emph{сертифицирована}.
+
+Напоминание: NUMA-архитектура --- быстрый доступ к памяти узла, медленный --- к соседней.
+
+\subsection{Как быстро работает ВМ?}
+Интерпретация байткода на порядок (10-20 раз) медленнее исполнения машинного кода.
+Есть Just-in-Time компиляция:
+\begin{itemize}
+    \item Виртуальная машина компилирует байткод в машинный код
+    \item Используется начиная с JDK 1.2
+\end{itemize}
+\paragraph{HotSpot}
+Основная JVM для настольных компьютеров и серверов, выпускается Oracle:
+\begin{itemize}
+    \item Адаптивный оптимизирующий JIT-компилятор
+    \item Используется с JDK 1.3
+\end{itemize}
+
+Пример runtime-оптимизации, невозможной в compile-time:
+замена виртуальных функций невиртуальными.
+
+\subsection{Сборка мусора}
+\paragraph{Подход C++}
+выделил память $\to$
+поработал $\to$
+освободил память. \\
+Всё управление памятью в руках программиста.
+
+\paragraph{Подход Java}
+выделил память $\to$
+поработал $\to$
+забыл. \\
+\emph{Виртуальная машина} считает ссылки на объекты,
+освобождает память, когда возможно
+(когда ссылок больше нет, но не только)
+
+\subsection{Многопоточное программирование}
+\paragraph{Многопоточность}
+\begin{itemize}
+    \item встроенная поддержка потоков
+    \item богатая библиотека примитивов синхронизации
+\end{itemize}
+
+\subsection{JRE/JDK}
+\paragraph{Java Runtime Environment (JRE)}
+Виртуальная машина и стандартная библиотека классов
+для запуска скомпилированных программ.
+
+\paragraph{Java Development Kit (JDK)}
+Набор инструментов для разработчиков (компилятор).
+Включает в себя JRE.
+
+\paragraph{Документация}
+\begin{itemize}
+    \item На JVM
+    \item На стандартную библиотеку
+\end{itemize}
+
+\subsection{Редакции Java}
+\begin{itemize}
+    \item Standard Edition
+    \item Micro Edition
+    \begin{itemize}
+        \item Подмножество SE + специфические библиотеки.
+    \end{itemize}
+    \item Enterprise Edition
+    \item Java Card
+\end{itemize}
+
+\subsection{Реализации Java}
+\begin{itemize}
+    \item Oracle Java (\url{https://java.oracle.com/})
+    \item OpenJDK (\url{https://openjdk.java.net/})
+    \item IcedTea (\url{https://icedtea.classpath.org/})
+    \item IBM J9
+    \item ещё несколько десятков
+\end{itemize}
+
+\subsection{Альтернативные языки}
+\begin{itemize}
+    \item Groovy
+    \item Kotlin
+    \item Scala
+    \item Clojure (диалект LISP)
+    \item JRuby (реализация Ruby на JVM)
+    \item Jython (реализация Python на JVM)
+\end{itemize}
+
+\subsection{HelloWorld.java}
+\begin{minted}{java}
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, world!");
+    }
+}
+\end{minted}
+
+\subsection{Java Coding Conventions}
+Классы --- UpperCamelCase.
+
+Константы --- UPPER\_SNAKE\_CASE.
+
+Переменные, поля и методы --- camelCase.
+
+Открывающие фигурные скобки --- на той же строке.
+
+Документация --- через JavaDoc.
+
+Между \texttt{++i} и \texttt{i++} выбирать \emph{последний} (если только нет различий по семантике).
