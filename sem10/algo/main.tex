@@ -7,18 +7,40 @@
 \usepackage{indentfirst}
 
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{float}
 \usepackage{tikz}
 
-% \usepackage[outputdir=out]{minted}
-\usepackage{algorithm2e}
+%\usepackage[outputdir=out]{minted}
+%\usepackage{algorithmicx}
+\usepackage{algpseudocodex}
+%\usepackage{algorithm2e}
 \usepackage{hyperref}
 
-% \setlength{\parindent}{1.25cm}
-% \renewcommand{\baselinestretch}{1.5}
+%\setlength{\parindent}{1.25cm}
+%\renewcommand{\baselinestretch}{1.5}
 \setlength{\parskip}{6pt}
 
 \begin{document}
+    \theoremstyle{definition}
+    \newtheorem{definition}{Определение}
+    \newtheorem{theorem}{Теорема}
+    \newtheorem{statement}{Утверждение}
+    \newtheorem{lemma}{Лемма}
+
+    \newcommand{\N}{\mathbb{N}}
+    \newcommand{\R}{\mathbb{R}_{>0}}
+    \renewcommand{\O}{\mathcal{O}}
+    \renewcommand{\o}{o}
+    \newcommand{\Const}{\mathit{Const}}
+
+    \newcommand{\paren}[1]{\left ( #1 \right )}
+    \newcommand{\brackets}[1]{\left [ #1 \right ]}
+    \newcommand{\braces}[1]{\left \{ #1 \right \}}
+    \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
+    \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+    \newcommand{\abs}[1]{\left | #1 \right |}
+
     \tableofcontents
     \include{lection01}
 \end{document}

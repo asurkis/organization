@@ -81,6 +81,7 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
 ### Документация по часто используемым пакетам
 - [tikz](http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf) ([CTAN](https://www.ctan.org/pkg/pgf))
 - [amsmath](https://mirror.macomnet.net/pub/CTAN/macros/latex/required/amsmath/amsldoc.pdf) ([CTAN](https://www.ctan.org/pkg/amsmath))
+- [amsthm](https://ctan.altspu.ru/macros/latex/required/amscls/doc/amsthdoc.pdf) ([CTAN](https://www.ctan.org/pkg/amsthm))
 - [algorithmicx](http://mirrors.ctan.org/macros/latex/contrib/algorithmicx/algorithmicx.pdf) ([CTAN](https://www.ctan.org/pkg/algorithmicx))
 - [algpseudocodex](http://mirrors.ctan.org/macros/latex/contrib/algpseudocodex/algpseudocodex.pdf) ([CTAN](https://www.ctan.org/pkg/algpseudocodex))
 - [algorithm2e](https://mirrors.mi-ras.ru/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf) ([CTAN](https://www.ctan.org/pkg/algorithm2e))
