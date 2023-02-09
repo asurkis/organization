@@ -1,4 +1,5 @@
 # [Магистратура, семестр 1](sem09/index.md)
+# [Магистратура, семестр 2](sem10/index.md)
 # Мои наработки
 ## Makefile
 Цель для Makefile, собирающая все файлы \*.cpp в данной директории в .exe с учётом CXX и CXXFLAGS:
@@ -79,8 +80,10 @@ build.exe: $(addsuffix .o,$(basename $(wildcard *.cpp)))
 ```
 ### Документация по часто используемым пакетам
 - [tikz](http://mirrors.ctan.org/graphics/pgf/base/doc/pgfmanual.pdf) ([CTAN](https://www.ctan.org/pkg/pgf))
+- [amsmath](https://mirror.macomnet.net/pub/CTAN/macros/latex/required/amsmath/amsldoc.pdf) ([CTAN](https://www.ctan.org/pkg/amsmath))
 - [algorithmicx](http://mirrors.ctan.org/macros/latex/contrib/algorithmicx/algorithmicx.pdf) ([CTAN](https://www.ctan.org/pkg/algorithmicx))
 - [algpseudocodex](http://mirrors.ctan.org/macros/latex/contrib/algpseudocodex/algpseudocodex.pdf) ([CTAN](https://www.ctan.org/pkg/algpseudocodex))
+- [algorithm2e](https://mirrors.mi-ras.ru/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf) ([CTAN](https://www.ctan.org/pkg/algorithm2e))
 - [minted](https://mirror.truenetwork.ru/CTAN/macros/latex/contrib/minted/minted.pdf) ([CTAN](https://ctan.org/pkg/minted))
 
 ## [Математика](./math.md)
