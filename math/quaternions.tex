@@ -26,31 +26,33 @@
 \end{align*}
 
 \subsection{Трёхмерный базис}
-Пусть $(\vec{e}_x, \vec{e}_y, \vec{e}_z)$
+Пусть $(\a, \b, \g)$
 --- ортонормированный базис,
-т.е. $\vec{e}_z = \vec{e}_x \times \vec{e}_y$.
+т.е. $\g = \a \times \b$.
 Тогда
 $\vec{r}_e = [
-    \vec{e}_x \cdot \vec{r},
-    \vec{e}_y \cdot \vec{r},
-    \vec{e}_z \cdot \vec{r}]^T$
+    \a \cdot \vec{r},
+    \b \cdot \vec{r},
+    \g \cdot \vec{r}]^T$
 и
-$\vec{r} = \vec{e}_x r_{ex} + \vec{e}_y r_{ex} + \vec{e}_z + r_{ex}$.
+$\vec{r} = \a r_{ex} + \b r_{ex} + \g r_{ex}$.
 То есть
 
 \[
     T =
     \begin{bmatrix}
-        e_{xx} & e_{xy} & e_{xz} \\
-        e_{yx} & e_{yy} & e_{yz} \\
-        e_{zx} & e_{zy} & e_{zz} \\
+        \a_x & \a_y & \a_z \\
+        \b_x & \b_y & \b_z \\
+        \g_x & \g_y & \g_z \\
     \end{bmatrix}
     \quad
     T^{-1} = T^T
 \]
 
+Транспонированный базис --- обратный и тоже ортонормированный.
+
 \subsection{Трёхмерный поворот}
-Известна ось $\vec{omega} = \vec{e}_z$
+Известна ось $\g$
 
 \[
     R_3 = T^T \cdot R_z \cdot T = \\
@@ -63,60 +65,48 @@ $\vec{r} = \vec{e}_x r_{ex} + \vec{e}_y r_{ex} + \vec{e}_z + r_{ex}$.
         0 & 0 & 1 \\
     \end{bmatrix} \cdot
     \begin{bmatrix}
-        e_{xx} & e_{xy} & e_{xz} \\
-        e_{yx} & e_{yy} & e_{yz} \\
-        e_{zx} & e_{zy} & e_{zz} \\
-    \end{bmatrix} =
-\]
-\[
-    = T^T \cdot
-    \begin{bmatrix}
-        (e_{xx} \cos \phi - e_{yx} \sin \phi) &
-        (e_{xy} \cos \phi - e_{yy} \sin \phi) &
-        (e_{xz} \cos \phi - e_{yz} \sin \phi) \\
-        (e_{xx} \sin \phi + e_{yx} \cos \phi) &
-        (e_{xy} \sin \phi + e_{yy} \cos \phi) &
-        (e_{xz} \sin \phi + e_{yz} \cos \phi) \\
-        e_{zx} & e_{zy} & e_{zz} \\
+        \a_x & \a_y & \a_z \\
+        \b_x & \b_y & \b_z \\
+        \g_x & \g_y & \g_z \\
     \end{bmatrix} =
 \]
 \[
     =
     \begin{bmatrix}
-        e_{xx} & e_{yx} & e_{zx} \\
-        e_{xy} & e_{yy} & e_{zy} \\
-        e_{xz} & e_{yz} & e_{zz} \\
+        \a_x & \b_x & \g_x \\
+        \a_y & \b_y & \g_y \\
+        \a_z & \b_z & \g_z \\
     \end{bmatrix}
     \cdot
     \begin{bmatrix}
-        (e_{xx} \cos \phi - e_{yx} \sin \phi) &
-        (e_{xy} \cos \phi - e_{yy} \sin \phi) &
-        (e_{xz} \cos \phi - e_{yz} \sin \phi) \\
-        (e_{xx} \sin \phi + e_{yx} \cos \phi) &
-        (e_{xy} \sin \phi + e_{yy} \cos \phi) &
-        (e_{xz} \sin \phi + e_{yz} \cos \phi) \\
-        e_{zx} &
-        e_{zy} &
-        e_{zz} \\
+        (\a_x \cos \phi - \b_x \sin \phi) &
+        (\a_y \cos \phi - \b_y \sin \phi) &
+        (\a_z \cos \phi - \b_z \sin \phi) \\
+        (\a_x \sin \phi + \b_x \cos \phi) &
+        (\a_y \sin \phi + \b_y \cos \phi) &
+        (\a_z \sin \phi + \b_z \cos \phi) \\
+        \g_x &
+        \g_y &
+        \g_z \\
     \end{bmatrix} =
 \]
 \[
     =
     \begin{bmatrix}
         \begin{bmatrix}
-            e_{xx} (e_{xx} \cos \phi - e_{yx} \sin \phi) + e_{yx} (e_{xx} \sin \phi + e_{yx} \cos \phi) + e_{zx}^2 \\
-            e_{xx} (e_{xy} \cos \phi - e_{yy} \sin \phi) + e_{yx} (e_{xy} \sin \phi + e_{yy} \cos \phi) + e_{zy}^2 \\
-            e_{xx} (e_{xz} \cos \phi - e_{yz} \sin \phi) + e_{yx} (e_{xz} \sin \phi + e_{yz} \cos \phi) + e_{zz}^2 \\
+            \a_x (\a_x \cos \phi - \b_x \sin \phi) + \b_x (\a_x \sin \phi + \b_x \cos \phi) + \g_x \g_x \\
+            \a_x (\a_y \cos \phi - \b_y \sin \phi) + \b_x (\a_y \sin \phi + \b_y \cos \phi) + \g_x \g_y \\
+            \a_x (\a_z \cos \phi - \b_z \sin \phi) + \b_x (\a_z \sin \phi + \b_z \cos \phi) + \g_x \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            e_{xy} (e_{xx} \cos \phi - e_{yx} \sin \phi) + e_{yy} (e_{xx} \sin \phi + e_{yx} \cos \phi) + e_{zx}^2 \\
-            e_{xy} (e_{xy} \cos \phi - e_{yy} \sin \phi) + e_{yy} (e_{xy} \sin \phi + e_{yy} \cos \phi) + e_{zy}^2 \\
-            e_{xy} (e_{xz} \cos \phi - e_{yz} \sin \phi) + e_{yy} (e_{xz} \sin \phi + e_{yz} \cos \phi) + e_{zz}^2 \\
+            \a_y (\a_x \cos \phi - \b_x \sin \phi) + \b_y (\a_x \sin \phi + \b_x \cos \phi) + \g_y \g_x \\
+            \a_y (\a_y \cos \phi - \b_y \sin \phi) + \b_y (\a_y \sin \phi + \b_y \cos \phi) + \g_y \g_y \\
+            \a_y (\a_z \cos \phi - \b_z \sin \phi) + \b_y (\a_z \sin \phi + \b_z \cos \phi) + \g_y \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            e_{xz} (e_{xx} \cos \phi - e_{yx} \sin \phi) + e_{yz} (e_{xx} \sin \phi + e_{yx} \cos \phi) + e_{zx}^2 \\
-            e_{xz} (e_{xy} \cos \phi - e_{yy} \sin \phi) + e_{yz} (e_{xy} \sin \phi + e_{yy} \cos \phi) + e_{zy}^2 \\
-            e_{xz} (e_{xz} \cos \phi - e_{yz} \sin \phi) + e_{yz} (e_{xz} \sin \phi + e_{yz} \cos \phi) + e_{zz}^2 \\
+            \a_z (\a_x \cos \phi - \b_x \sin \phi) + \b_z (\a_x \sin \phi + \b_x \cos \phi) + \g_z \g_x \\
+            \a_z (\a_y \cos \phi - \b_y \sin \phi) + \b_z (\a_y \sin \phi + \b_y \cos \phi) + \g_z \g_y \\
+            \a_z (\a_z \cos \phi - \b_z \sin \phi) + \b_z (\a_z \sin \phi + \b_z \cos \phi) + \g_z \g_z \\
         \end{bmatrix} \\
     \end{bmatrix} =
 \]
@@ -124,19 +114,19 @@ $\vec{r} = \vec{e}_x r_{ex} + \vec{e}_y r_{ex} + \vec{e}_z + r_{ex}$.
     =
     \begin{bmatrix}
         \begin{bmatrix}
-            e_{xx}^2 \cos \phi - e_{xx} e_{yx} \sin \phi + e_{xx} e_{yx} \sin \phi + e_{yx}^2 \cos \phi + e_{zx}^2 \\
-            e_{xx} e_{xy} \cos \phi - e_{xx} e_{yy} \sin \phi + e_{xy} e_{yx} \sin \phi + e_{yx} e_{yy} \cos \phi + e_{zy}^2 \\
-            e_{xx} e_{xz} \cos \phi - e_{xx} e_{yz} \sin \phi + e_{xz} e_{yx} \sin \phi + e_{yx} e_{yz} \cos \phi + e_{zz}^2 \\
+            \a_x \a_x \cos \phi - \a_x \b_x \sin \phi + \b_x \a_x \sin \phi + \b_x \b_x \cos \phi + \g_x \g_x \\
+            \a_x \a_y \cos \phi - \a_x \b_y \sin \phi + \b_x \a_y \sin \phi + \b_x \b_y \cos \phi + \g_x \g_y \\
+            \a_x \a_z \cos \phi - \a_x \b_z \sin \phi + \b_x \a_z \sin \phi + \b_x \b_z \cos \phi + \g_x \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            e_{xy} e_{xx} \cos \phi - e_{xy} e_{yx} \sin \phi + e_{yy} e_{xx} \sin \phi + e_{yy} e_{yx} \cos \phi + e_{zx}^2 \\
-            e_{xy}^2 \cos \phi - e_{xy} e_{yy} \sin \phi + e_{yy} e_{xy} \sin \phi + e_{yy}^2 \cos \phi + e_{zy}^2 \\
-            e_{xy} e_{xz} \cos \phi - e_{xy} e_{yz} \sin \phi + e_{yy} e_{xz} \sin \phi + e_{yy} e_{yz} \cos \phi + e_{zz}^2 \\
+            \a_y \a_x \cos \phi - \a_y \b_x \sin \phi + \b_y \a_x \sin \phi + \b_y \b_x \cos \phi + \g_y \g_x \\
+            \a_y \a_y \cos \phi - \a_y \b_y \sin \phi + \b_y \a_y \sin \phi + \b_y \b_y \cos \phi + \g_y \g_y \\
+            \a_y \a_z \cos \phi - \a_y \b_z \sin \phi + \b_y \a_z \sin \phi + \b_y \b_z \cos \phi + \g_y \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            e_{xz} e_{xx} \cos \phi - e_{xz} e_{yx} \sin \phi + e_{yz} e_{xx} \sin \phi + e_{yz} e_{yx} \cos \phi + e_{zx}^2 \\
-            e_{xz} e_{xy} \cos \phi - e_{xz} e_{yy} \sin \phi + e_{yz} e_{xy} \sin \phi + e_{yz} e_{yy} \cos \phi + e_{zy}^2 \\
-            e_{xz}^2 \cos \phi - e_{xz} e_{yz} \sin \phi + e_{yz} e_{xz} \sin \phi + e_{yz}^2 \cos \phi + e_{zz}^2 \\
+            \a_z \a_x \cos \phi - \a_z \b_x \sin \phi + \b_z \a_x \sin \phi + \b_z \b_x \cos \phi + \g_z \g_x \\
+            \a_z \a_y \cos \phi - \a_z \b_y \sin \phi + \b_z \a_y \sin \phi + \b_z \b_y \cos \phi + \g_z \g_y \\
+            \a_z \a_z \cos \phi - \a_z \b_z \sin \phi + \b_z \a_z \sin \phi + \b_z \b_z \cos \phi + \g_z \g_z \\
         \end{bmatrix} \\
     \end{bmatrix} =
 \]
@@ -144,19 +134,19 @@ $\vec{r} = \vec{e}_x r_{ex} + \vec{e}_y r_{ex} + \vec{e}_z + r_{ex}$.
     =
     \begin{bmatrix}
         \begin{bmatrix}
-            (e_{xx}^2 + e_{yx}^2) \cos \phi + e_{zx}^2 \\
-            (e_{xx} e_{xy} + e_{yx} e_{yy}) \cos \phi + (e_{xy} e_{yx} - e_{xx} e_{yy}) \sin \phi + e_{zy}^2 \\
-            (e_{xx} e_{xz} + e_{yx} e_{yz}) \cos \phi + (e_{xz} e_{yx} - e_{xx} e_{yz}) \sin \phi + e_{zz}^2 \\
+            (\a_x^2 + \b_x^2) \cos \phi + \g_x^2 \\
+            \a_x \a_y \cos \phi - \a_x \b_y \sin \phi + \b_x \a_y \sin \phi + \b_x \b_y \cos \phi + \g_x \g_y \\
+            \a_x \a_z \cos \phi - \a_x \b_z \sin \phi + \b_x \a_z \sin \phi + \b_x \b_z \cos \phi + \g_x \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            (e_{xy} e_{xx} + e_{yy} e_{yx}) \cos \phi + (e_{yy} e_{xx} - e_{xy} e_{yx}) \sin \phi + e_{zx}^2 \\
-            (e_{xy}^2 + e_{yy}^2) \cos \phi + e_{zy}^2 \\
-            (e_{xy} e_{xz} + e_{yy} e_{yz}) \cos \phi + (e_{yy} e_{xz} - e_{xy} e_{yz}) \sin \phi + e_{zz}^2 \\
+            \a_y \a_x \cos \phi - \a_y \b_x \sin \phi + \b_y \a_x \sin \phi + \b_y \b_x \cos \phi + \g_y \g_x \\
+            (\a_y^2 + \b_y^2) \cos \phi + \g_y^2 \\
+            \a_y \a_z \cos \phi - \a_y \b_z \sin \phi + \b_y \a_z \sin \phi + \b_y \b_z \cos \phi + \g_y \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            (e_{xz} e_{xx} + e_{yz} e_{yx}) \cos \phi + (e_{yz} e_{xx} - e_{xz} e_{yx}) \sin \phi + e_{zx}^2 \\
-            (e_{xz} e_{xy} + e_{yz} e_{yy}) \cos \phi + e_{yz} e_{xy} \sin \phi - e_{xz} e_{yy} \sin \phi + e_{zy}^2 \\
-            (e_{xz}^2 + e_{yz}^2) \cos \phi + e_{zz}^2 \\
+            \a_z \a_x \cos \phi - \a_z \b_x \sin \phi + \b_z \a_x \sin \phi + \b_z \b_x \cos \phi + \g_z \g_x \\
+            \a_z \a_y \cos \phi - \a_z \b_y \sin \phi + \b_z \a_y \sin \phi + \b_z \b_y \cos \phi + \g_z \g_y \\
+            (\a_z^2 + \b_z^2) \cos \phi + \g_z^2 \\
         \end{bmatrix} \\
     \end{bmatrix} =
 \]
@@ -164,42 +154,181 @@ $\vec{r} = \vec{e}_x r_{ex} + \vec{e}_y r_{ex} + \vec{e}_z + r_{ex}$.
     =
     \begin{bmatrix}
         \begin{bmatrix}
-            (1 - x^2) \cos \phi + x^2 \\
-            (e_{xx} e_{xy} + e_{yx} e_{yy}) \cos \phi - z \sin \phi + y^2 \\
-            (e_{xx} e_{xz} + e_{yx} e_{yz}) \cos \phi + y \sin \phi + z^2 \\
+            (1 - \g_x^2) \cos \phi + \g_x^2 \\
+            (\a_x \a_y + \b_x \b_y) \cos \phi + (\b_x \a_y - \a_x \b_y) \sin \phi + \g_x \g_y \\
+            (\a_x \a_z + \b_x \b_z) \cos \phi + (\b_x \a_z - \a_x \b_z) \sin \phi + \g_x \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            (e_{xy} e_{xx} + e_{yy} e_{yx}) \cos \phi + z \sin \phi + x^2 \\
-            (1 - y^2) \cos \phi + y^2 \\
-            (e_{xy} e_{xz} + e_{yy} e_{yz}) \cos \phi - x \sin \phi + z^2 \\
+            (\a_y \a_x + \b_y \b_x) \cos \phi + (\b_y \a_x - \a_y \b_x) \sin \phi + \g_y \g_x \\
+            (1 - \g_y^2) \cos \phi + \g_y^2 \\
+            (\a_y \a_z + \b_y \b_z) \cos \phi + (\b_y \a_z - \a_y \b_z) \sin \phi + \g_y \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            (e_{xz} e_{xx} + e_{yz} e_{yx}) \cos \phi - y \sin \phi + x^2 \\
-            (e_{xz} e_{xy} + e_{yz} e_{yy}) \cos \phi + x \sin \phi + y^2 \\
-            (1 - z^2) \cos \phi + z^2 \\
+            (\a_z \a_x + \b_z \b_x) \cos \phi + (\b_z \a_x - \a_z \b_x) \sin \phi + \g_z \g_x \\
+            (\a_z \a_y + \b_z \b_y) \cos \phi + (\b_z \a_y - \a_z \b_y) \sin \phi + \g_z \g_y \\
+            (1 - \g_z^2) \cos \phi + \g_z^2 \\
         \end{bmatrix} \\
     \end{bmatrix} =
 \]
-% sin(2x) = 2 sin x cos x
-% cos(2x) = cos^2 x - sin^2 x
-% sin(x) =
 \[
     =
     \begin{bmatrix}
         \begin{bmatrix}
-            (1 - x^2) \cos \phi + x^2 \\
-            (e_{xx} e_{xy} + e_{yx} e_{yy}) \cos \phi - z \sin \phi + y^2 \\
-            (e_{xx} e_{xz} + e_{yx} e_{yz}) \cos \phi + y \sin \phi + z^2 \\
+            (1 - \g_x^2) \cos \phi + \g_x^2 \\
+            (\a_x \a_y + \b_x \b_y) \cos \phi - \g_z \sin \phi + \g_x \g_y \\
+            (\a_x \a_z + \b_x \b_z) \cos \phi + \g_y \sin \phi + \g_x \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            (e_{xy} e_{xx} + e_{yy} e_{yx}) \cos \phi + z \sin \phi + x^2 \\
-            (1 - y^2) \cos \phi + y^2 \\
-            (e_{xy} e_{xz} + e_{yy} e_{yz}) \cos \phi - x \sin \phi + z^2 \\
+            (\a_y \a_x + \b_y \b_x) \cos \phi + \g_z \sin \phi + \g_y \g_x \\
+            (1 - \g_y^2) \cos \phi + \g_y^2 \\
+            (\a_y \a_z + \b_y \b_z) \cos \phi - \g_x \sin \phi + \g_y \g_z \\
         \end{bmatrix} \\ \\
         \begin{bmatrix}
-            (e_{xz} e_{xx} + e_{yz} e_{yx}) \cos \phi - y \sin \phi + x^2 \\
-            (e_{xz} e_{xy} + e_{yz} e_{yy}) \cos \phi + x \sin \phi + y^2 \\
-            (1 - z^2) \cos \phi + z^2 \\
+            (\a_z \a_x + \b_z \b_x) \cos \phi - \g_y \sin \phi + \g_z \g_x \\
+            (\a_z \a_y + \b_z \b_y) \cos \phi + \g_x \sin \phi + \g_z \g_y \\
+            (1 - \g_z^2) \cos \phi + \g_z^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix}
+% a_x a_y + b_x b_y + g_x g_y = 0
+% a_x a_z + b_x b_z + g_x g_z = 0
+% a_y a_x + b_y b_z + g_y g_z = 0
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            (1 - \g_x^2) \cos \phi + \g_x^2 \\
+            (-\g_x \g_y) \cos \phi - \g_z \sin \phi + \g_x \g_y \\
+            (-\g_x \g_z) \cos \phi + \g_y \sin \phi + \g_x \g_z \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (-\g_y \g_x) \cos \phi + \g_z \sin \phi + \g_y \g_x \\
+            (1 - \g_y^2) \cos \phi + \g_y^2 \\
+            (-\g_y \g_z) \cos \phi - \g_x \sin \phi + \g_y \g_z \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (-\g_z \g_x) \cos \phi - \g_y \sin \phi + \g_z \g_x \\
+            (-\g_z \g_y) \cos \phi + \g_x \sin \phi + \g_z \g_y \\
+            (1 - \g_z^2) \cos \phi + \g_z^2 \\
         \end{bmatrix} \\
     \end{bmatrix} =
 \]
+\[
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            (1 - \g_x^2) \cos \phi + \g_x^2 \\
+            \g_x \g_y (1 - \cos \phi) - \g_z \sin \phi \\
+            \g_x \g_z (1 - \cos \phi) + \g_y \sin \phi \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            \g_y \g_x (1 - \cos \phi) + \g_z \sin \phi \\
+            (1 - \g_y^2) \cos \phi + \g_y^2 \\
+            \g_y \g_z (1 - \cos \phi) - \g_x \sin \phi \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            \g_z \g_x (1 - \cos \phi) - \g_y \sin \phi \\
+            \g_z \g_y (1 - \cos \phi) + \g_x \sin \phi \\
+            (1 - \g_z^2) \cos \phi + \g_z^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        (1 - \g_x^2) \cos \phi + \g_x^2 &
+        \g_x \g_y (1 - \cos \phi) - \g_z \sin \phi &
+        \g_x \g_z (1 - \cos \phi) + \g_y \sin \phi \\
+        \g_y \g_x (1 - \cos \phi) + \g_z \sin \phi &
+        (1 - \g_y^2) \cos \phi + \g_y^2 &
+        \g_y \g_z (1 - \cos \phi) - \g_x \sin \phi \\
+        \g_z \g_x (1 - \cos \phi) - \g_y \sin \phi &
+        \g_z \g_y (1 - \cos \phi) + \g_x \sin \phi &
+        (1 - \g_z^2) \cos \phi + \g_z^2 \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        (1 - x^2) \cos \phi + x^2 &
+        x y (1 - \cos \phi) - z \sin \phi &
+        x z (1 - \cos \phi) + y \sin \phi \\
+        y x (1 - \cos \phi) + z \sin \phi &
+        (1 - y^2) \cos \phi + y^2 &
+        y z (1 - \cos \phi) - x \sin \phi \\
+        z x (1 - \cos \phi) - y \sin \phi &
+        z y (1 - \cos \phi) + x \sin \phi &
+        (1 - z^2) \cos \phi + z^2 \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        \cos \phi + x^2 (1 - \cos \phi) &
+        x y (1 - \cos \phi) - z \sin \phi &
+        x z (1 - \cos \phi) + y \sin \phi \\
+        y x (1 - \cos \phi) + z \sin \phi &
+        \cos \phi + y^2 (1 - \cos \phi) &
+        y z (1 - \cos \phi) - x \sin \phi \\
+        z x (1 - \cos \phi) - y \sin \phi &
+        z y (1 - \cos \phi) + x \sin \phi &
+        \cos \phi + z^2 (1 - \cos \phi) \\
+    \end{bmatrix}
+\]
+
+\subsection{Кватернион}
+\[ q = \cos(\phi / 2) + (xi + yj + zk) \sin(\phi / 2) \]
+\[ \overline{q} = \cos(\phi / 2) - (xi + yj + zk) \sin(\phi / 2) \]
+\[ q^{-1} = \frac{\overline{q}}{|q|^2} \]
+
+\[ \cos \phi = 2 \cos^2 (\phi / 2) - 1 \]
+\[ \sin \phi = 2 \cos(\phi / 2) \sin(\phi / 2) \]
+\[ \cos \phi + x^2 (1 - \cos \phi) = \]
+\[ = (2 q_w^2 + 1) / 2 + x^2 (1 - (\cos^2 (\phi / 2) - \sin^2 (\phi / 2))) = \]
+\[ = (2 q_w^2 + 1) / 2 + 2 x^2 \sin^2 (\phi / 2) = \]
+\[ = (2 q_w^2 + 1) / 2 + 2 q_x^2 \]
+
+\[ x y (1 - \cos \phi) - z \sin \phi = \]
+\[ = x y 2 \sin^2 (\phi / 2) - z 2 \sin (\phi / 2) \cos (\phi / 2) = \]
+\[ = 2 q_x q_y - 2 q_z q_w \]
+
+Тогда
+\[ u = xi + yj + zk \quad \quad |u| = 1 \]
+\[ q = \cos(\phi / 2) + u \sin(\phi / 2) \]
+\[ q^{-1} = \cos(\phi / 2) - u \sin(\phi / 2) \]
+
+\begin{align*}
+    vu
+    & = (v_x i + v_y j + v_z k) (u_x i + u_y j + u_z k) = \\
+    %
+    & = v_x i u_x i + v_y j u_x i + v_z k u_x i + \\
+    & + v_x i u_y j + v_y j u_y j + v_z k u_y j + \\
+    & + v_x i u_z k + v_y j u_z k + v_z k u_z k = \\
+    %
+    & = -v_x u_x - v_y u_x k + v_z u_x j + \\
+    & + v_x u_y k - v_y u_y - v_z u_y i - \\
+    & - v_x u_z j + v_y u_z i - v_z u_z = \\
+    %
+    & = (-1) \cdot (v_x u_x + v_y u_y + v_z u_z) + \\
+    & + i \cdot (v_y u_z - v_z u_y) + \\
+    & + j \cdot (v_z u_x - v_x u_z) + \\
+    & + k \cdot (v_x u_y - v_y u_x) = \\
+    %
+    & = v \times u - v \cdot u
+\end{align*}
+
+\begin{align*}
+    q v q^{-1}
+    & = \paren{\cos\paren{\frac{\phi}{2}} + u \sin\paren{\frac{\phi}{2}}} v \paren{\cos\paren{\frac{\phi}{2}} - u \sin\paren{\frac{\phi}{2}}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + (uv - vu) \sin\paren{\frac{\phi}{2}} \cos\paren{\frac{\phi}{2}} - uvu \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + \Bigl( (u \times v - u \cdot v) - (v \times u - v \cdot u) \Bigr) \sin\paren{\frac{\phi}{2}} \cos\paren{\frac{\phi}{2}} - uvu \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + 2 u \times v \sin\paren{\frac{\phi}{2}} \cos\paren{\frac{\phi}{2}} - uvu \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + u \times v \sin\phi - uvu \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + u \times v \sin\phi - (u \times v - u \cdot v) u \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + u \times v \sin\phi - \Bigl( (u \times v) u - (u \cdot v) u \Bigr) \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + u \times v \sin\phi - \Biggl( \Bigl( (u \times v) \times u - (u \times v) \cdot u \Bigr) - (u \cdot v) u \Biggr) \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + u \times v \sin\phi - \Bigl( (u \times v) \times u - (u \times v) \cdot u - (u \cdot v) u \Bigr) \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos^2 \paren{\frac{\phi}{2}} + u \times v \sin\phi - \Bigl( (v - (u \cdot v) u) - 0 - (u \cdot v) u \Bigr) \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \paren{\cos^2 \paren{\frac{\phi}{2}} - \sin^2 \paren{\frac{\phi}{2}}} + u \times v \sin\phi + 2 (u \cdot v) u \sin^2 \paren{\frac{\phi}{2}} = \\
+    & = v \cos \phi + u \times v_{\perp} \sin\phi + v_{\parallel} \paren{1 - \cos \phi} = \\
+    & = (v - v_{\parallel}) \cos \phi + u \times v_{\perp} \sin\phi + v_{\parallel} = \\
+    & = v_{\perp} \cos \phi + u \times v_{\perp} \sin\phi + v_{\parallel} \\
+\end{align*}
