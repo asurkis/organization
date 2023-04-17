@@ -1,0 +1,205 @@
+\section{Матрица поворота и кватернионы}
+\subsection{Двумерная матрица поворота}
+\begin{align*}
+    x_1 & = r \cos \alpha \\
+    y_1 & = r \sin \alpha \\
+    x_2
+    & = r \cos (\alpha + \phi) = \\
+    & = r \cos \alpha \cos \phi - r \sin \alpha \sin \phi = \\
+    & = x_1 \cos \phi - y_1 \sin \phi \\
+    y_2
+    & = r \sin (\alpha + \phi) = \\
+    & = r \sin \alpha \cos \phi + r \cos \alpha \sin \phi = \\
+    & = y_1 \cos \phi + x_1 \sin \phi = \\
+    R_2 & =
+    \begin{bmatrix}
+        \cos \phi & -\sin \phi \\
+        \sin \phi & \cos \phi \\
+    \end{bmatrix} \\
+    \begin{bmatrix} x_2 \\ y_2 \end{bmatrix}
+    & =
+    \begin{bmatrix}
+        \cos \phi & -\sin \phi \\
+        \sin \phi & \cos \phi \\
+    \end{bmatrix} \cdot
+    \begin{bmatrix} x_1 \\ y_1 \end{bmatrix}
+\end{align*}
+
+\subsection{Трёхмерный базис}
+Пусть $(\vec{e}_x, \vec{e}_y, \vec{e}_z)$
+--- ортонормированный базис,
+т.е. $\vec{e}_z = \vec{e}_x \times \vec{e}_y$.
+Тогда
+$\vec{r}_e = [
+    \vec{e}_x \cdot \vec{r},
+    \vec{e}_y \cdot \vec{r},
+    \vec{e}_z \cdot \vec{r}]^T$
+и
+$\vec{r} = \vec{e}_x r_{ex} + \vec{e}_y r_{ex} + \vec{e}_z + r_{ex}$.
+То есть
+
+\[
+    T =
+    \begin{bmatrix}
+        e_{xx} & e_{xy} & e_{xz} \\
+        e_{yx} & e_{yy} & e_{yz} \\
+        e_{zx} & e_{zy} & e_{zz} \\
+    \end{bmatrix}
+    \quad
+    T^{-1} = T^T
+\]
+
+\subsection{Трёхмерный поворот}
+Известна ось $\vec{omega} = \vec{e}_z$
+
+\[
+    R_3 = T^T \cdot R_z \cdot T = \\
+\]
+\[
+    = T^T \cdot
+    \begin{bmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi &  \cos \phi & 0 \\
+        0 & 0 & 1 \\
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+        e_{xx} & e_{xy} & e_{xz} \\
+        e_{yx} & e_{yy} & e_{yz} \\
+        e_{zx} & e_{zy} & e_{zz} \\
+    \end{bmatrix} =
+\]
+\[
+    = T^T \cdot
+    \begin{bmatrix}
+        (e_{xx} \cos \phi - e_{yx} \sin \phi) &
+        (e_{xy} \cos \phi - e_{yy} \sin \phi) &
+        (e_{xz} \cos \phi - e_{yz} \sin \phi) \\
+        (e_{xx} \sin \phi + e_{yx} \cos \phi) &
+        (e_{xy} \sin \phi + e_{yy} \cos \phi) &
+        (e_{xz} \sin \phi + e_{yz} \cos \phi) \\
+        e_{zx} & e_{zy} & e_{zz} \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        e_{xx} & e_{yx} & e_{zx} \\
+        e_{xy} & e_{yy} & e_{zy} \\
+        e_{xz} & e_{yz} & e_{zz} \\
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+        (e_{xx} \cos \phi - e_{yx} \sin \phi) &
+        (e_{xy} \cos \phi - e_{yy} \sin \phi) &
+        (e_{xz} \cos \phi - e_{yz} \sin \phi) \\
+        (e_{xx} \sin \phi + e_{yx} \cos \phi) &
+        (e_{xy} \sin \phi + e_{yy} \cos \phi) &
+        (e_{xz} \sin \phi + e_{yz} \cos \phi) \\
+        e_{zx} &
+        e_{zy} &
+        e_{zz} \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            e_{xx} (e_{xx} \cos \phi - e_{yx} \sin \phi) + e_{yx} (e_{xx} \sin \phi + e_{yx} \cos \phi) + e_{zx}^2 \\
+            e_{xx} (e_{xy} \cos \phi - e_{yy} \sin \phi) + e_{yx} (e_{xy} \sin \phi + e_{yy} \cos \phi) + e_{zy}^2 \\
+            e_{xx} (e_{xz} \cos \phi - e_{yz} \sin \phi) + e_{yx} (e_{xz} \sin \phi + e_{yz} \cos \phi) + e_{zz}^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            e_{xy} (e_{xx} \cos \phi - e_{yx} \sin \phi) + e_{yy} (e_{xx} \sin \phi + e_{yx} \cos \phi) + e_{zx}^2 \\
+            e_{xy} (e_{xy} \cos \phi - e_{yy} \sin \phi) + e_{yy} (e_{xy} \sin \phi + e_{yy} \cos \phi) + e_{zy}^2 \\
+            e_{xy} (e_{xz} \cos \phi - e_{yz} \sin \phi) + e_{yy} (e_{xz} \sin \phi + e_{yz} \cos \phi) + e_{zz}^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            e_{xz} (e_{xx} \cos \phi - e_{yx} \sin \phi) + e_{yz} (e_{xx} \sin \phi + e_{yx} \cos \phi) + e_{zx}^2 \\
+            e_{xz} (e_{xy} \cos \phi - e_{yy} \sin \phi) + e_{yz} (e_{xy} \sin \phi + e_{yy} \cos \phi) + e_{zy}^2 \\
+            e_{xz} (e_{xz} \cos \phi - e_{yz} \sin \phi) + e_{yz} (e_{xz} \sin \phi + e_{yz} \cos \phi) + e_{zz}^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            e_{xx}^2 \cos \phi - e_{xx} e_{yx} \sin \phi + e_{xx} e_{yx} \sin \phi + e_{yx}^2 \cos \phi + e_{zx}^2 \\
+            e_{xx} e_{xy} \cos \phi - e_{xx} e_{yy} \sin \phi + e_{xy} e_{yx} \sin \phi + e_{yx} e_{yy} \cos \phi + e_{zy}^2 \\
+            e_{xx} e_{xz} \cos \phi - e_{xx} e_{yz} \sin \phi + e_{xz} e_{yx} \sin \phi + e_{yx} e_{yz} \cos \phi + e_{zz}^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            e_{xy} e_{xx} \cos \phi - e_{xy} e_{yx} \sin \phi + e_{yy} e_{xx} \sin \phi + e_{yy} e_{yx} \cos \phi + e_{zx}^2 \\
+            e_{xy}^2 \cos \phi - e_{xy} e_{yy} \sin \phi + e_{yy} e_{xy} \sin \phi + e_{yy}^2 \cos \phi + e_{zy}^2 \\
+            e_{xy} e_{xz} \cos \phi - e_{xy} e_{yz} \sin \phi + e_{yy} e_{xz} \sin \phi + e_{yy} e_{yz} \cos \phi + e_{zz}^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            e_{xz} e_{xx} \cos \phi - e_{xz} e_{yx} \sin \phi + e_{yz} e_{xx} \sin \phi + e_{yz} e_{yx} \cos \phi + e_{zx}^2 \\
+            e_{xz} e_{xy} \cos \phi - e_{xz} e_{yy} \sin \phi + e_{yz} e_{xy} \sin \phi + e_{yz} e_{yy} \cos \phi + e_{zy}^2 \\
+            e_{xz}^2 \cos \phi - e_{xz} e_{yz} \sin \phi + e_{yz} e_{xz} \sin \phi + e_{yz}^2 \cos \phi + e_{zz}^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            (e_{xx}^2 + e_{yx}^2) \cos \phi + e_{zx}^2 \\
+            (e_{xx} e_{xy} + e_{yx} e_{yy}) \cos \phi + (e_{xy} e_{yx} - e_{xx} e_{yy}) \sin \phi + e_{zy}^2 \\
+            (e_{xx} e_{xz} + e_{yx} e_{yz}) \cos \phi + (e_{xz} e_{yx} - e_{xx} e_{yz}) \sin \phi + e_{zz}^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (e_{xy} e_{xx} + e_{yy} e_{yx}) \cos \phi + (e_{yy} e_{xx} - e_{xy} e_{yx}) \sin \phi + e_{zx}^2 \\
+            (e_{xy}^2 + e_{yy}^2) \cos \phi + e_{zy}^2 \\
+            (e_{xy} e_{xz} + e_{yy} e_{yz}) \cos \phi + (e_{yy} e_{xz} - e_{xy} e_{yz}) \sin \phi + e_{zz}^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (e_{xz} e_{xx} + e_{yz} e_{yx}) \cos \phi + (e_{yz} e_{xx} - e_{xz} e_{yx}) \sin \phi + e_{zx}^2 \\
+            (e_{xz} e_{xy} + e_{yz} e_{yy}) \cos \phi + e_{yz} e_{xy} \sin \phi - e_{xz} e_{yy} \sin \phi + e_{zy}^2 \\
+            (e_{xz}^2 + e_{yz}^2) \cos \phi + e_{zz}^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix} =
+\]
+\[
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            (1 - x^2) \cos \phi + x^2 \\
+            (e_{xx} e_{xy} + e_{yx} e_{yy}) \cos \phi - z \sin \phi + y^2 \\
+            (e_{xx} e_{xz} + e_{yx} e_{yz}) \cos \phi + y \sin \phi + z^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (e_{xy} e_{xx} + e_{yy} e_{yx}) \cos \phi + z \sin \phi + x^2 \\
+            (1 - y^2) \cos \phi + y^2 \\
+            (e_{xy} e_{xz} + e_{yy} e_{yz}) \cos \phi - x \sin \phi + z^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (e_{xz} e_{xx} + e_{yz} e_{yx}) \cos \phi - y \sin \phi + x^2 \\
+            (e_{xz} e_{xy} + e_{yz} e_{yy}) \cos \phi + x \sin \phi + y^2 \\
+            (1 - z^2) \cos \phi + z^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix} =
+\]
+% sin(2x) = 2 sin x cos x
+% cos(2x) = cos^2 x - sin^2 x
+% sin(x) =
+\[
+    =
+    \begin{bmatrix}
+        \begin{bmatrix}
+            (1 - x^2) \cos \phi + x^2 \\
+            (e_{xx} e_{xy} + e_{yx} e_{yy}) \cos \phi - z \sin \phi + y^2 \\
+            (e_{xx} e_{xz} + e_{yx} e_{yz}) \cos \phi + y \sin \phi + z^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (e_{xy} e_{xx} + e_{yy} e_{yx}) \cos \phi + z \sin \phi + x^2 \\
+            (1 - y^2) \cos \phi + y^2 \\
+            (e_{xy} e_{xz} + e_{yy} e_{yz}) \cos \phi - x \sin \phi + z^2 \\
+        \end{bmatrix} \\ \\
+        \begin{bmatrix}
+            (e_{xz} e_{xx} + e_{yz} e_{yx}) \cos \phi - y \sin \phi + x^2 \\
+            (e_{xz} e_{xy} + e_{yz} e_{yy}) \cos \phi + x \sin \phi + y^2 \\
+            (1 - z^2) \cos \phi + z^2 \\
+        \end{bmatrix} \\
+    \end{bmatrix} =
+\]
