@@ -1,0 +1,84 @@
+\section{Проекция}
+Правила проекции:
+\[
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+        w \\
+    \end{bmatrix}
+    \to
+    \begin{bmatrix}
+        x / w \\
+        y / w \\
+        z / w \\
+        1 \\
+    \end{bmatrix}
+\]
+
+Хотим вектор $[x, y, z, 1]^T$
+преобразовать глубину
+$[z_n; z_f] \to [\a; \b]$.
+
+\[
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & a & b \\
+        0 & 0 & c & d \\
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+        x \\
+        y \\
+        z \\
+        1 \\
+    \end{bmatrix}
+\]
+
+\[
+    \left\{
+    \begin{array}{l}
+        az + b = z' \\
+        cz + d = w' \\
+        z'_n = w'_n \a \\
+        z'_f = w'_f \b \\
+        z = w' \\
+    \end{array}
+    \right.
+    \Leftrightarrow
+    \left\{
+    \begin{array}{l}
+        az_n + b = z_n \a \\
+        az_f + b = z_f \b \\
+    \end{array}
+    \right.
+    \Leftrightarrow
+    \left\{
+    \begin{array}{l}
+        a(z_f + z_n) + 2b = z_f \b + z_n \a \\
+        a(z_f - z_n) = z_f \b - z_n \a \\
+    \end{array}
+    \right.
+\]
+\begin{align*}
+    a & = \frac{z_f \b - z_n \a}{z_f - z_n} \\
+    b
+    & = \frac{1}{2} \Biggl( z_f \b + z_n \a - a(z_f + z_n) \Biggr) = \\
+    & = \frac{1}{2} \Biggl( z_f \b + z_n \a - \frac{z_f \b - z_n \a}{z_f - z_n} (z_f + z_n) \Biggr) = \\
+    & = \frac{1}{2} \Biggl( \frac{(z_f \b + z_n \a) (z_f - z_n) - (z_f \b - z_n \a) (z_f + z_n)}{z_f - z_n} \Biggr) = \\
+    & = \frac{(z_f \b + z_n \a) (z_f - z_n) - (z_f \b - z_n \a) (z_f + z_n)}{2(z_f - z_n)} = \\
+    & = \frac{z_f^2 \b - z_n z_f \b + z_n z_f \a - z_n^2 \a - z_f^2 \b + z_n z_f \a - z_n z_f \b + z_n^2 \a}{2(z_f - z_n)} = \\
+    & = \frac{2 z_n z_f \a - 2 z_n z_f \b}{2(z_f - z_n)} = \\
+    & = \frac{z_n z_f (\a - \b)}{z_f - z_n} \\
+\end{align*}
+
+\[
+    M =
+    \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & \frac{z_f \b - z_n \a}{z_f - z_n} & \frac{z_n z_f (\a - \b)}{z_f - z_n} \\
+        0 & 0 & 1 & 0 \\
+    \end{bmatrix}
+\]
