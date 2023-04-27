@@ -38,27 +38,27 @@ $[z_n; z_f] \to [\a; \b]$.
 
 \[
     \left\{
-    \begin{array}{l}
-        az + b = z' \\
-        cz + d = w' \\
-        z'_n = w'_n \a \\
-        z'_f = w'_f \b \\
-        z = w' \\
-    \end{array}
+    \begin{aligned}
+        & az + b = z' \\
+        & cz + d = w' \\
+        & z'_n = w'_n \a \\
+        & z'_f = w'_f \b \\
+        & z = w' \\
+    \end{aligned}
     \right.
     \Leftrightarrow
     \left\{
-    \begin{array}{l}
-        az_n + b = z_n \a \\
-        az_f + b = z_f \b \\
-    \end{array}
+    \begin{aligned}
+        & az_n + b = z_n \a \\
+        & az_f + b = z_f \b \\
+    \end{aligned}
     \right.
     \Leftrightarrow
     \left\{
-    \begin{array}{l}
-        a(z_f + z_n) + 2b = z_f \b + z_n \a \\
-        a(z_f - z_n) = z_f \b - z_n \a \\
-    \end{array}
+    \begin{aligned}
+        & a(z_f + z_n) + 2b = z_f \b + z_n \a \\
+        & a(z_f - z_n) = z_f \b - z_n \a \\
+    \end{aligned}
     \right.
 \]
 \begin{align*}
@@ -78,6 +78,51 @@ $[z_n; z_f] \to [\a; \b]$.
     \begin{bmatrix}
         1 & 0 & 0 & 0 \\
         0 & 1 & 0 & 0 \\
+        0 & 0 & \frac{z_f \b - z_n \a}{z_f - z_n} & \frac{z_n z_f (\a - \b)}{z_f - z_n} \\
+        0 & 0 & 1 & 0 \\
+    \end{bmatrix}
+\]
+
+Если нужно сместить центр пирамиды так,
+чтобы попадал участок $[x_1; x_2]$ и $[y_1; y_2]$
+с расстояния 1, то
+\[
+    \left\{
+    \begin{aligned}
+        & x_1 k_x + s_x = -1 \\
+        & x_2 k_x + s_x = 1 \\
+        & y_1 k_y + s_y = -1 \\
+        & y_2 k_y + s_y = 1 \\
+    \end{aligned}
+    \right.
+\]
+\[
+    \left\{
+    \begin{aligned}
+        & (x_2 + x_1) k_x + 2 s_x = 0 \\
+        & (y_2 + y_1) k_y + 2 s_y = 0 \\
+        & (x_2 - x_1) k_x = 2 \\
+        & (y_2 - y_1) k_y = 2 \\
+    \end{aligned}
+    \right.
+\]
+\[
+    \left\{
+    \begin{aligned}
+        & s_x = \frac{x_1 - x_2}{x_1 + x_2} \\
+        & s_y = \frac{y_1 - y_2}{y_1 + y_2} \\
+        & k_x = \frac{2}{x_2 - x_1} \\
+        & k_y = \frac{2}{y_2 - y_1} \\
+    \end{aligned}
+    \right.
+\]
+
+Тогда итоговая матрица имеет вид:
+\[
+    M =
+    \begin{bmatrix}
+        \frac{2}{x_2 - x_1} & 0 & \frac{x_1 - x_2}{x_1 + x_2} & 0 \\
+        0 & \frac{2}{y_2 - y_1} & \frac{y_1 - y_2}{y_1 + y_2} & 0 \\
         0 & 0 & \frac{z_f \b - z_n \a}{z_f - z_n} & \frac{z_n z_f (\a - \b)}{z_f - z_n} \\
         0 & 0 & 1 & 0 \\
     \end{bmatrix}
