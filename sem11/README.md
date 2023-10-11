@@ -8,7 +8,9 @@
 
 ## Вторник
 
-11:40-13:10 — практика по OS Advanced
+11:00-12:30 — практика по Java (online)
+
+<!-- 11:40-13:10 — практика по OS Advanced -->
 
 ## Среда
 
@@ -28,6 +30,8 @@
 
 13:30-?? — LLVM
 
+15:20-16:50 — практика по OS Advanced
+
 ## Пятница
 
 09:30-12:30 — вычисления на видеокартах
@@ -45,11 +49,12 @@
 
 ## OS Advanced
 
-- [Телеграм-группа]()
+- [Телеграм-группа](https://t.me/c/1809592365)
 - [Гугл-таблица](https://docs.google.com/spreadsheets/d/1qmtpEDTlYyYaZ_atwmjqZVhTRsWbAVVYLIS-ovje1wo/edit#gid=0)
 
 ## Виртуальные машины
 
+- [Телеграм-группа](https://t.me/+QVZXq6kZ8xg0NTdi)
 - [Гугл-диск](https://drive.google.com/drive/folders/15tw5nbgBQ-r-rhMXYptkuOrAF3mJsFLs)
 
 ## Rust
