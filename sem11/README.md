@@ -80,3 +80,7 @@
 ## LLVM
 
 (курс закрытый)
+
+## Вычисления на видеокартах
+
+- [Зум](https://us06web.zoom.us/j/84248481597?pwd=eDFUN1dUQjVqU2IrVTM0VDdNazlyQT09)
